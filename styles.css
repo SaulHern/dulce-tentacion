@@ -1,14 +1,14 @@
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Pacifico', cursive;
     margin: 0;
     padding: 0;
-    background-color: #f9f6f1;
+    background-color: #fffaf5;
     color: #4e342e;
 }
 
 header {
-    background-color: #8d6e63;
+    background-color: #ff69b4;
     color: white;
     text-align: center;
     padding: 1.5rem 0;
@@ -17,7 +17,7 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 .content {
@@ -28,7 +28,7 @@ header h1 {
 
 .intro {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 2rem;
 }
 
@@ -39,12 +39,12 @@ header h1 {
 }
 
 .producto {
-    border: 1px solid #e0cfc2;
-    border-radius: 10px;
+    border: 2px solid #ffb6c1;
+    border-radius: 12px;
     padding: 1rem;
     text-align: center;
     background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s, opacity 0.3s;
     opacity: 0;
 }
@@ -60,22 +60,24 @@ header h1 {
 }
 
 .producto:hover {
-    transform: translateY(-5px);
+    transform: scale(1.05);
 }
 
 .producto img {
-    max-width: 100px;
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
     margin-bottom: 0.5rem;
 }
 
 .producto h3 {
     margin: 0.5rem 0;
-    font-size: 1.2rem;
-    color: #5d4037;
+    font-size: 1.4rem;
+    color: #d6336c;
 }
 
 .producto p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0;
 }
 
@@ -83,12 +85,12 @@ header h1 {
     display: block;
     width: fit-content;
     margin: 2rem auto;
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 2rem;
     background-color: #25d366;
     color: white;
     text-decoration: none;
     border-radius: 50px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     transition: background-color 0.3s;
 }
 
@@ -98,7 +100,7 @@ header h1 {
 
 footer {
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #a1887f;
     padding: 1rem;
     border-top: 1px solid #e0cfc2;
