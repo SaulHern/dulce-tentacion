@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Candy Lul - Haz tu pedido</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #e91e63;
+            margin-bottom: 10px;
+        }
+        .producto {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .producto img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .producto button {
+            margin-top: 8px;
+            padding: 8px 16px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .producto button:hover {
+            background-color: #ff1493;
+        }
+        #pedido {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px dashed #ff69b4;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        #enviar {
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #enviar:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>🍬 Candy Lul - Haz tu pedido 🍬</h1>
+
+    <div class="producto">
+        <img src="images/gloria.jpg" alt="Gloria" />
+        <p>Gloria - $9</p>
+        <button onclick="agregarProducto('Gloria', 9)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="images/skwinkle.jpg" alt="Skwinkle" />
+        <p>Skwinkle - $8</p>
+        <button onclick="agregarProducto('Skwinkle', 8)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="images/conejito.jpg" alt="Conejito" />
+        <p>Conejito - $13</p>
+        <button onclick="agregarProducto('Conejito', 13)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="images/bomboncitos.jpg" alt="Bomboncitos" />
+        <p>Bomboncitos - $13</p>
+        <button onclick="agregarProducto('Bomboncitos', 13)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="images/mazapan.jpg" alt="Mazapán" />
+        <p>Mazapán - $4</p>
+        <button onclick="agregarProducto('Mazapán', 4)">Agregar</button>
+    </div>
+
+    <div id="pedido">
+        <h2>📝 Tu pedido:</h2>
+        <ul id="listaPedido"></ul>
+        <p id="total">Total: $0</p>
+    </div>
+
+    <button id="enviar" onclick="enviarWhatsApp()">📲 Enviar pedido por WhatsApp</button>
+
+    <script>
+        let pedido = {};
+        let total = 0;
+
+        function agregarProducto(nombre, precio) {
+            if (pedido[nombre]) {
+                pedido[nombre].cantidad += 1;
+            } else {
+                pedido[nombre] = { cantidad: 1, precio: precio };
+            }
+            total += precio;
+            actualizarPedido();
+        }
+
+        function actualizarPedido() {
+            let lista = document.getElementById('listaPedido');
+            lista.innerHTML = '';
+            for (let producto in pedido) {
+                let item = document.createElement('li');
+                item.innerText = `${producto}: ${pedido[producto].cantidad} × $${pedido[producto].precio} = $${pedido[producto].cantidad * pedido[producto].precio}`;
+                lista.appendChild(item);
+            }
+            document.getElementById('total').innerText = `Total: $${total}`;
+        }
+
+        function enviarWhatsApp() {
+            let mensaje = 'Hola Candy Lul, quiero hacer el siguiente pedido:%0A%0A';
+            for (let producto in pedido) {
+                mensaje += `- ${producto}: ${pedido[producto].cantidad} × $${pedido[producto].precio} = $${pedido[producto].cantidad * pedido[producto].precio}%0A`;
+            }
+            mensaje += `%0ATotal: $${total}%0A%0A¡Te esperamos pronto!`;
+
+            // Aquí pones tu número de WhatsApp en formato internacional sin el "1"
+            let numero = '52XXXXXXXXXX';
+
+            let url = `https://wa.me/${numero}?text=${mensaje}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
