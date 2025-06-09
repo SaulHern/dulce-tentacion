@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Candy Lul - Pedido</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #fff8f0; }
+        h1 { color: #e91e63; }
+        button { margin: 5px; padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #pedido { margin-top: 20px; padding: 10px; border: 1px solid #ccc; background-color: #fff; }
+        #enviar { background-color: #4CAF50; color: white; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🍬 Candy Lul - Haz tu pedido 🍬</h1>
+    
+    <p>Haz click en los productos que quieras:</p>
+    <button onclick="agregarProducto('Gloria', 9)">Agregar Gloria</button>
+    <button onclick="agregarProducto('Skwinkle', 8)">Agregar Skwinkle</button>
+    <button onclick="agregarProducto('Conejito', 13)">Agregar Conejito</button>
+    <button onclick="agregarProducto('Bomboncito', 20)">Agregar Bomboncito</button>
+    <button onclick="agregarProducto('Mazapán', 4)">Agregar Mazapán</button>
+
+    <div id="pedido">
+        <h2>📝 Tu pedido:</h2>
+        <ul id="listaPedido"></ul>
+        <p id="total">Total: $0</p>
+    </div>
+
+    <button id="enviar" onclick="enviarWhatsApp()">📲 Enviar pedido por WhatsApp</button>
+
+    <script>
+        let pedido = {};
+        let total = 0;
+
+        function agregarProducto(nombre, precio) {
+            if (pedido[nombre]) {
+                pedido[nombre].cantidad += 1;
+            } else {
+                pedido[nombre] = { cantidad: 1, precio: precio };
+            }
+            total += precio;
+            actualizarPedido();
+        }
+
+        function actualizarPedido() {
+            let lista = document.getElementById('listaPedido');
+            lista.innerHTML = '';
+            for (let producto in pedido) {
+                let item = document.createElement('li');
+                item.innerText = `${producto}: ${pedido[producto].cantidad} × $${pedido[producto].precio} = $${pedido[producto].cantidad * pedido[producto].precio}`;
+                lista.appendChild(item);
+            }
+            document.getElementById('total').innerText = `Total: $${total}`;
+        }
+
+        function enviarWhatsApp() {
+            let mensaje = 'Hola Candy Lul, quiero hacer el siguiente pedido:%0A%0A';
+            for (let producto in pedido) {
+                mensaje += `- ${producto}: ${pedido[producto].cantidad} × $${pedido[producto].precio} = $${pedido[producto].cantidad * pedido[producto].precio}%0A`;
+            }
+            mensaje += `%0ATotal: $${total}%0A%0A¡Te esperamos pronto!`;
+
+            // Aquí pones tu número de WhatsApp en formato internacional sin el "1" (ejemplo: 52XXXXXXXXXX)
+            let numero = '52XXXXXXXXXX';
+
+            let url = `https://wa.me/${numero}?text=${mensaje}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
