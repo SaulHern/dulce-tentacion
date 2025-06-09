@@ -39,6 +39,26 @@ function agregarProducto(nombre, precio, qtyId) {
     }
 
     actualizarMensajeInstagram();
+    // BOTÓN ANIMACIÓN REBOTE
+    const btnAgregar = document.querySelector(`button[onclick="agregarProducto('${nombre}', ${precio}, '${qtyId}')"]`);
+    btnAgregar.classList.add('agregado');
+    setTimeout(() => {
+        btnAgregar.classList.remove('agregado');
+    }, 500);
+
+    // BOTÓN ANIMACIÓN REBOTE
+    const btnAgregar = document.querySelector(`button[onclick="agregarProducto('${nombre}', ${precio}, '${qtyId}')"]`);
+    btnAgregar.classList.add('agregado');
+    setTimeout(() => {
+        btnAgregar.classList.remove('agregado');
+    }, 500);
+}
+
+        li.appendChild(btnEliminar);
+        document.getElementById('listaPedido').appendChild(li);
+    }
+
+    actualizarMensajeInstagram();
 }
 
 function actualizarMensajeInstagram() {
