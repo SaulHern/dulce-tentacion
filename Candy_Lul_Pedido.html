@@ -25,10 +25,6 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .producto img {
-            width: 100%;
-            border-radius: 8px;
-        }
         .producto button {
             margin-top: 8px;
             padding: 8px 16px;
@@ -63,37 +59,46 @@
         #enviar:hover {
             background-color: #45a049;
         }
+        #volver {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #volver:hover {
+            background-color: #1976D2;
+        }
     </style>
 </head>
 <body>
     <h1>🍬 Candy Lul - Haz tu pedido 🍬</h1>
 
     <div class="producto">
-        <img src="images/gloria.jpg" alt="Gloria" />
         <p>Gloria - $9</p>
         <button onclick="agregarProducto('Gloria', 9)">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="images/skwinkle.jpg" alt="Skwinkle" />
         <p>Skwinkle - $8</p>
         <button onclick="agregarProducto('Skwinkle', 8)">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="images/conejito.jpg" alt="Conejito" />
         <p>Conejito - $13</p>
         <button onclick="agregarProducto('Conejito', 13)">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="images/bomboncitos.jpg" alt="Bomboncitos" />
         <p>Bomboncitos - $13</p>
         <button onclick="agregarProducto('Bomboncitos', 13)">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="images/mazapan.jpg" alt="Mazapán" />
         <p>Mazapán - $4</p>
         <button onclick="agregarProducto('Mazapán', 4)">Agregar</button>
     </div>
@@ -105,6 +110,8 @@
     </div>
 
     <button id="enviar" onclick="enviarWhatsApp()">📲 Enviar pedido por WhatsApp</button>
+
+    <p><a id="volver" href="index.html">⬅️ Volver al inicio</a></p>
 
     <script>
         let pedido = {};
