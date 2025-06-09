@@ -119,6 +119,51 @@
     <h1>🍬 Haz tu pedido 🍬</h1>
     <!-- productos -->
 
+    <div class="producto">
+        <img src="images/gloria.jpg" alt="Gloria">
+        <p>Gloria - $9</p>
+        <button onclick="agregarProducto('Gloria', 9)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="images/skwinkle.jpg" alt="Skwinkle">
+        <p>Skwinkle - $8</p>
+        <button onclick="agregarProducto('Skwinkle', 8)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="images/conejito.jpg" alt="Conejito">
+        <p>Conejito - $13</p>
+        <button onclick="agregarProducto('Conejito', 13)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="images/bomboncitos.jpg" alt="Bomboncitos">
+        <p>Bomboncitos - $13</p>
+        <button onclick="agregarProducto('Bomboncitos', 13)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <img src="images/mazapan.jpg" alt="Mazapán">
+        <p>Mazapán - $4</p>
+        <button onclick="agregarProducto('Mazapán', 4)">Agregar</button>
+    </div>
+
+    <div id="pedido">
+        <h2>📝 Tu pedido:</h2>
+        <ul id="listaPedido"></ul>
+        <p id="total">Total: $0</p>
+    </div>
+
+    <h3>📋 Mensaje para enviar por Instagram:</h3>
+    <div id="mensajeInstagram">(Tu pedido aparecerá aquí cuando agregues productos)</div>
+
+    <button id="copiar" onclick="copiarMensaje()">📋 Copiar mensaje</button>
+
+    <button id="enviar" onclick="enviarInstagram()">📲 Enviar pedido por Instagram</button>
+
+    <p><a id="volver" href="index.html">⬅️ Volver al inicio</a></p>
+
     <footer>
         &copy; 2025 Candy Lul. Todos los derechos reservados. Instagram: @_candy_lul_
     </footer>
