@@ -1,0 +1,7 @@
+
+body { font-family: Arial, sans-serif; background: #fff; color: #000; transition: background 0.3s, color 0.3s; }
+body.dark-mode { background: #121212; color: #f0f0f0; }
+button { margin: 5px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+button:hover { opacity: 0.9; }
+.producto { border: 1px solid #ccc; padding: 10px; margin: 10px; border-radius: 5px; transition: transform 0.2s; }
+.producto:hover { transform: scale(1.02); }
