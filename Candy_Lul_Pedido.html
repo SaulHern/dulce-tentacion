@@ -50,6 +50,17 @@
             background-color: #fff;
             border-radius: 10px;
         }
+        #mensajeInstagram {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 8px;
+            text-align: left;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 14px;
+        }
         #enviar {
             margin-top: 15px;
             padding: 12px 24px;
@@ -84,7 +95,7 @@
     <h1>🍬 Candy Lul - Haz tu pedido 🍬</h1>
 
     <p class="instrucciones">
-        Cuando tu pedido esté listo, mándanos un mensaje directo (DM) en nuestro Instagram oficial: <b>@_candy_lul_</b> 💬
+        Cuando tu pedido esté listo, copia el siguiente mensaje y mándanos un DM en nuestro Instagram oficial: <b>@_candy_lul_</b> 💬
     </p>
 
     <div class="producto">
@@ -118,7 +129,10 @@
         <p id="total">Total: $0</p>
     </div>
 
-    <button id="enviar" onclick="enviarInstagram()">📲 Enviar pedido por Instagram</button>
+    <h3>📋 Mensaje para enviar por Instagram:</h3>
+    <div id="mensajeInstagram">(Tu pedido aparecerá aquí cuando agregues productos)</div>
+
+    <button id="enviar" onclick="enviarInstagram()">📲 Ir a Instagram</button>
 
     <p><a id="volver" href="index.html">⬅️ Volver al inicio</a></p>
 
@@ -145,12 +159,21 @@
                 lista.appendChild(item);
             }
             document.getElementById('total').innerText = `Total: $${total}`;
+            actualizarMensajeInstagram();
+        }
+
+        function actualizarMensajeInstagram() {
+            let mensaje = 'Hola Candy Lul, quiero hacer el siguiente pedido:\n\n';
+            for (let producto in pedido) {
+                mensaje += `- ${producto}: ${pedido[producto].cantidad} × $${pedido[producto].precio} = $${pedido[producto].cantidad * pedido[producto].precio}\n`;
+            }
+            mensaje += `\nTotal: $${total}\n\n¡Te lo mando por DM en Instagram!`;
+
+            document.getElementById('mensajeInstagram').innerText = mensaje.replace(/\\n/g, '\n');
         }
 
         function enviarInstagram() {
-            alert("Tu pedido se ha generado. Por favor envíanos un DM en Instagram @_candy_lul_ con tu pedido. ¡Gracias!");
-
-            // Abre Instagram en nueva pestaña
+            alert("Tu pedido está listo. Copia el mensaje mostrado arriba y pégalo en un DM en nuestro Instagram @_candy_lul_. ¡Gracias!");
             window.open('https://www.instagram.com/_candy_lul_/', '_blank');
         }
     </script>
