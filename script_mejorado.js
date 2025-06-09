@@ -1,3 +1,4 @@
+
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
 }
@@ -40,7 +41,6 @@ function agregarProducto(nombre, precio, qtyId) {
 
     actualizarMensajeInstagram();
 
-    // ANIMACIÓN BOTÓN
     const btnAgregar = document.querySelector(`button[onclick="agregarProducto('${nombre}', ${precio}, '${qtyId}')"]`);
     btnAgregar.classList.add('agregado');
     setTimeout(() => {
@@ -81,7 +81,13 @@ function enviarInstagram() {
     window.open(url, '_blank');
 }
 
+function enviarWhatsApp() {
+    const mensaje = encodeURIComponent(document.getElementById('mensajeInstagram').textContent);
+    const url = `https://wa.me/525520708423?text=${mensaje}`;
+    window.open(url, '_blank');
+}
+
 function mostrarDudas() {
     const dudasDiv = document.getElementById('dudas');
-    dudasDiv.style.display = (dudasDiv.style.display === 'none') ? 'block' : 'none';
+    dudasDiv.classList.toggle('visible');
 }

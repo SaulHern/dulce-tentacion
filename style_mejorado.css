@@ -1,7 +1,4 @@
-body {
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-/* Estilos base */
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
@@ -11,56 +8,14 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-h1, h2, h3 {
-    text-align: center;
-}
-
-/* Productos */
-.producto {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin: 15px auto;
-    max-width: 300px;
-    text-align: center;
-    transition: transform 0.2s;
-}
-
-.producto:hover {
-    transform: scale(1.02);
-}
-
-.producto img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.producto p {
-    margin: 10px 0;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.producto input[type="number"] {
-    width: 60px;
-    padding: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
-
-/* Botones */
 button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px 18px;
+    padding: 14px 24px;
     margin-top: 10px;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 25px;
+    font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
@@ -70,115 +25,21 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Botón quitar */
-button:contains("Quitar") {
-    background-color: #f44336;
-}
-
-#listaPedido button {
-    background-color: #f44336;
-    margin-left: 10px;
-}
-
-#listaPedido button:hover {
-    background-color: #d32f2f;
-}
-
-/* Carrito */
-#listaPedido {
-    list-style: none;
+#dudas {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    background-color: #fff;
     padding: 0;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#listaPedido li {
-    background-color: #fff;
-    margin: 10px 0;
-    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Mensaje Instagram */
-#mensajeInstagram {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 8px;
-    white-space: pre-wrap;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
     color: #444;
 }
 
-/* Total */
-#total {
-    font-size: 20px;
-    font-weight: bold;
-    color: #222;
-}
-
-/* Botón volver */
-a {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    background-color: #2196F3;
-    color: white;
+#dudas.visible {
+    opacity: 1;
+    max-height: 500px;
     padding: 10px 20px;
-    border-radius: 6px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-a:hover {
-    background-color: #1976D2;
-    transform: scale(1.05);
-}
-
-/* Modo oscuro */
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-body.dark-mode .producto {
-    background-color: #1f1f1f;
-    color: #e0e0e0;
-}
-
-body.dark-mode #mensajeInstagram {
-    background-color: #1f1f1f;
-    border-color: #333;
-    color: #e0e0e0;
-}
-
-body.dark-mode #listaPedido li {
-    background-color: #1f1f1f;
-    color: #e0e0e0;
-}
-
-body.dark-mode a {
-    background-color: #BB86FC;
-}
-
-body.dark-mode a:hover {
-    background-color: #985EFF;
-}
-/* Animación bounce para botón de agregar */
-@keyframes bounce {
-    0%   { transform: scale(1); }
-    30%  { transform: scale(1.2); }
-    50%  { transform: scale(0.95); }
-    70%  { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-button.agregado {
-    animation: bounce 0.5s;
 }

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,10 +9,11 @@
 </head>
 <body class="light-mode">
     <header>
-    <img src="images/banner.png" alt="Candy Lul Banner" style="width:100%; max-width:1000px; height:auto; margin-bottom:10px;">
-    <h1>Candy Lul - Haz tu pedido</h1>
-    <button onclick="toggleDarkMode()">🌙 Modo oscuro / ☀️ Modo claro</button>
-</header>
+        <img src="images/banner.png" alt="Candy Lul Banner" style="width:100%; max-width:1000px; height:auto; margin-bottom:10px;">
+        <h1>Candy Lul - Haz tu pedido</h1>
+        <button onclick="toggleDarkMode()">🌙 Modo oscuro / ☀️ Modo claro</button>
+    </header>
+
     <main>
         <!-- Productos -->
         <div class="producto">
@@ -46,7 +48,7 @@
             <img src="images/mazapan.jpg" alt="Mazapán" />
             <p>Mazapán - $4</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Mazapan" />
-            <button onclick="agregarProducto('Mazapán', 4, 'qty-Mazapan')">Agregar</button>
+            <button onclick="agregarProducto('Mazapan', 4, 'qty-Mazapan')">Agregar</button>
         </div>
 
         <!-- Carrito / Pedido -->
@@ -60,22 +62,20 @@
 
         <!-- Botones -->
         <button onclick="copiarMensaje()">📋 Copiar mensaje</button>
-        <button onclick="enviarInstagram()">📤 Enviar pedido por Instagram</button>
-        <p><a href="index.html">🏠 Volver al inicio</a></p>
-
-        <!-- Botón Dudas -->
+        <button onclick="enviarInstagram()">📩 Enviar pedido por Instagram</button>
+        <button onclick="enviarWhatsApp()">📱 Enviar pedido por WhatsApp</button>
+        <a href="index.html">🏠 Volver al inicio</a>
         <button onclick="mostrarDudas()">❓ Dudas frecuentes</button>
 
         <!-- Panel Dudas -->
         <div id="dudas" style="display:none; margin-top:15px; padding:10px; border:1px solid #ccc; border-radius:8px; background-color:#fff; color:#444;">
             <ul>
                 <li>¿Cómo hago un pedido? - Agrega los productos y copia el mensaje.</li>
-                <li>¿Dónde lo envío? - A nuestro Instagram @_candy_lul_</li>
+                <li>¿Dónde lo envío? - A nuestro Instagram @_candy_lul_ o WhatsApp.</li>
                 <li>¿Horario? - Lunes a Viernes de 7:00 a 2:20.</li>
-                <li>¿Cuándo me lo entregan? - Te confirmamos por DM.</li>
+                <li>¿Cuándo me lo entregan? - Te confirmamos por DM o WhatsApp.</li>
             </ul>
         </div>
-
     </main>
 
     <footer>
