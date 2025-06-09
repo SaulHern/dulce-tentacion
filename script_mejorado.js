@@ -83,5 +83,5 @@ function enviarInstagram() {
 
 function mostrarDudas() {
     const dudasDiv = document.getElementById('dudas');
-    dudasDiv.classList.toggle('visible');
+    dudasDiv.style.display = (dudasDiv.style.display === 'none') ? 'block' : 'none';
 }
