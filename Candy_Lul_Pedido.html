@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,38 +6,43 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #4B0082;
+            background-color: #A00002;
             margin: 0;
             padding: 20px;
             text-align: center;
             color: white;
         }
+
         header img {
             width: 100%;
             max-width: 1000px;
             height: auto;
             margin-bottom: 10px;
         }
+
         h1 {
             color: #ffccff;
             margin-bottom: 10px;
         }
+
         .producto {
             display: inline-block;
             width: 220px;
-            margin: 10px;
             padding: 10px;
+            margin: 10px;
             background-color: #ffffff;
             color: #333;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .producto img {
             width: 100%;
             height: 150px;
             object-fit: cover;
             border-radius: 8px;
         }
+
         .producto button {
             margin-top: 8px;
             padding: 10px 20px;
@@ -49,9 +53,11 @@
             font-size: 18px;
             cursor: pointer;
         }
+
         .producto button:hover {
             background-color: #ff1493;
         }
+
         #pedido {
             margin-top: 20px;
             padding: 15px;
@@ -60,6 +66,7 @@
             border-radius: 10px;
             color: #333;
         }
+
         #mensajeInstagram {
             margin-top: 15px;
             padding: 10px;
@@ -72,6 +79,7 @@
             font-size: 16px;
             color: #000;
         }
+
         #copiar, #enviar {
             margin-top: 10px;
             padding: 14px 28px;
@@ -82,18 +90,23 @@
             cursor: pointer;
             color: white;
         }
+
         #copiar {
             background-color: #f39c12;
         }
+
         #copiar:hover {
             background-color: #e67e22;
         }
+
         #enviar {
             background-color: #E1306C;
         }
+
         #enviar:hover {
             background-color: #C13584;
         }
+
         #volver {
             display: inline-block;
             margin-top: 20px;
@@ -105,67 +118,123 @@
             font-size: 18px;
             font-weight: bold;
         }
+
         #volver:hover {
             background-color: #1976D2;
         }
     </style>
 </head>
 <body>
+
     <header>
         <img src="images/banner.png" alt="Candy Lul Banner">
     </header>
-    <img src="images/logo_candy_lul.png" alt="Candy Lul Logo" class="logo">
 
     <h1>🍬 Haz tu pedido 🍬</h1>
-    <!-- productos -->
 
+    <!-- Productos -->
     <div class="producto">
-        <img src="images/gloria.jpg" alt="Gloria">
+        <img src="images/gloria.jpg" alt="Gloria" />
         <p>Gloria - $9</p>
         <button onclick="agregarProducto('Gloria', 9)">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="images/skwinkle.jpg" alt="Skwinkle">
+        <img src="images/skwinkle.jpg" alt="Skwinkle" />
         <p>Skwinkle - $8</p>
         <button onclick="agregarProducto('Skwinkle', 8)">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="images/conejito.jpg" alt="Conejito">
+        <img src="images/conejito.jpg" alt="Conejito" />
         <p>Conejito - $13</p>
         <button onclick="agregarProducto('Conejito', 13)">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="images/bomboncitos.jpg" alt="Bomboncitos">
+        <img src="images/bomboncitos.jpg" alt="Bomboncitos" />
         <p>Bomboncitos - $13</p>
         <button onclick="agregarProducto('Bomboncitos', 13)">Agregar</button>
     </div>
 
     <div class="producto">
-        <img src="images/mazapan.jpg" alt="Mazapán">
+        <img src="images/mazapan.jpg" alt="Mazapán" />
         <p>Mazapán - $4</p>
         <button onclick="agregarProducto('Mazapán', 4)">Agregar</button>
     </div>
 
+    <!-- Pedido -->
     <div id="pedido">
         <h2>📝 Tu pedido:</h2>
         <ul id="listaPedido"></ul>
-        <p id="total">Total: $0</p>
+        <p><strong>Total:</strong> $<span id="total">0</span></p>
     </div>
 
+    <!-- Mensaje Instagram -->
     <h3>📋 Mensaje para enviar por Instagram:</h3>
     <div id="mensajeInstagram">(Tu pedido aparecerá aquí cuando agregues productos)</div>
 
     <button id="copiar" onclick="copiarMensaje()">📋 Copiar mensaje</button>
-
     <button id="enviar" onclick="enviarInstagram()">📲 Enviar pedido por Instagram</button>
 
-    <p><a id="volver" href="index.html">⬅️ Volver al inicio</a></p>
+    <br>
+    <a id="volver" href="index.html">🔙 Volver al inicio</a>
 
     <footer>
-        &copy; 2025 Candy Lul. Todos los derechos reservados. Instagram: @_candy_lul_
+        <p>&copy; 2025 Candy Lul. Todos los derechos reservados. Instagram: @_candy_lul_</p>
     </footer>
+
+    <script>
+        let pedido = [];
+        let total = 0;
+
+        function agregarProducto(nombre, precio) {
+            pedido.push({ nombre, precio });
+            total += precio;
+            actualizarPedido();
+            actualizarMensajeInstagram();
+        }
+
+        function actualizarPedido() {
+            const listaPedido = document.getElementById('listaPedido');
+            listaPedido.innerHTML = '';
+            pedido.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.nombre} - $${item.precio}`;
+                listaPedido.appendChild(li);
+            });
+            document.getElementById('total').textContent = total;
+        }
+
+        function actualizarMensajeInstagram() {
+            const mensajeDiv = document.getElementById('mensajeInstagram');
+            if (pedido.length === 0) {
+                mensajeDiv.textContent = '(Tu pedido aparecerá aquí cuando agregues productos)';
+                return;
+            }
+            let mensaje = '🍬 *Pedido para Candy Lul* 🍬\n\n';
+            pedido.forEach(item => {
+                mensaje += `- ${item.nombre}: $${item.precio}\n`;
+            });
+            mensaje += `\nTotal: $${total}\n\n👉 Enviado desde https://candylul.github.io/dulce-tentacion/`;
+            mensajeDiv.textContent = mensaje;
+        }
+
+        function copiarMensaje() {
+            const mensaje = document.getElementById('mensajeInstagram').textContent;
+            navigator.clipboard.writeText(mensaje).then(() => {
+                alert('Mensaje copiado al portapapeles 📋');
+            }).catch(err => {
+                alert('Error al copiar el mensaje');
+            });
+        }
+
+        function enviarInstagram() {
+            const mensaje = encodeURIComponent(document.getElementById('mensajeInstagram').textContent);
+            const url = `https://www.instagram.com/_candy_lul_/`;
+            window.open(url, '_blank');
+        }
+    </script>
+
 </body>
 </html>
