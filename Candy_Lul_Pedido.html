@@ -61,6 +61,20 @@
             font-family: monospace;
             font-size: 14px;
         }
+        #copiar {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #f39c12;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #copiar:hover {
+            background-color: #e67e22;
+        }
         #enviar {
             margin-top: 15px;
             padding: 12px 24px;
@@ -132,6 +146,8 @@
     <h3>📋 Mensaje para enviar por Instagram:</h3>
     <div id="mensajeInstagram">(Tu pedido aparecerá aquí cuando agregues productos)</div>
 
+    <button id="copiar" onclick="copiarMensaje()">📋 Copiar mensaje</button>
+
     <button id="enviar" onclick="enviarInstagram()">📲 Ir a Instagram</button>
 
     <p><a id="volver" href="index.html">⬅️ Volver al inicio</a></p>
@@ -172,8 +188,17 @@
             document.getElementById('mensajeInstagram').innerText = mensaje.replace(/\\n/g, '\n');
         }
 
+        function copiarMensaje() {
+            const mensaje = document.getElementById('mensajeInstagram').innerText;
+            navigator.clipboard.writeText(mensaje).then(() => {
+                alert('¡Mensaje copiado! Ahora pégalo en tu DM de Instagram.');
+            }, (err) => {
+                alert('Error al copiar el mensaje: ' + err);
+            });
+        }
+
         function enviarInstagram() {
-            alert("Tu pedido está listo. Copia el mensaje mostrado arriba y pégalo en un DM en nuestro Instagram @_candy_lul_. ¡Gracias!");
+            alert("Te llevaremos a nuestro Instagram. No olvides pegar tu pedido en el DM. ¡Gracias!");
             window.open('https://www.instagram.com/_candy_lul_/', '_blank');
         }
     </script>
