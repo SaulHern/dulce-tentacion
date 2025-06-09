@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Candy Lul - Haz tu pedido</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #e91e63;
+            margin-bottom: 10px;
+        }
+        p.instrucciones {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .producto {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .producto button {
+            margin-top: 8px;
+            padding: 8px 16px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .producto button:hover {
+            background-color: #ff1493;
+        }
+        #pedido {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px dashed #ff69b4;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        #enviar {
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: #E1306C;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #enviar:hover {
+            background-color: #C13584;
+        }
+        #volver {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #volver:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <h1>🍬 Candy Lul - Haz tu pedido 🍬</h1>
+
+    <p class="instrucciones">
+        Cuando tu pedido esté listo, mándanos un mensaje directo (DM) en nuestro Instagram oficial: <b>@_candy_lul_</b> 💬
+    </p>
+
+    <div class="producto">
+        <p>Gloria - $9</p>
+        <button onclick="agregarProducto('Gloria', 9)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <p>Skwinkle - $8</p>
+        <button onclick="agregarProducto('Skwinkle', 8)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <p>Conejito - $13</p>
+        <button onclick="agregarProducto('Conejito', 13)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <p>Bomboncitos - $13</p>
+        <button onclick="agregarProducto('Bomboncitos', 13)">Agregar</button>
+    </div>
+
+    <div class="producto">
+        <p>Mazapán - $4</p>
+        <button onclick="agregarProducto('Mazapán', 4)">Agregar</button>
+    </div>
+
+    <div id="pedido">
+        <h2>📝 Tu pedido:</h2>
+        <ul id="listaPedido"></ul>
+        <p id="total">Total: $0</p>
+    </div>
+
+    <button id="enviar" onclick="enviarInstagram()">📲 Enviar pedido por Instagram</button>
+
+    <p><a id="volver" href="index.html">⬅️ Volver al inicio</a></p>
+
+    <script>
+        let pedido = {};
+        let total = 0;
+
+        function agregarProducto(nombre, precio) {
+            if (pedido[nombre]) {
+                pedido[nombre].cantidad += 1;
+            } else {
+                pedido[nombre] = { cantidad: 1, precio: precio };
+            }
+            total += precio;
+            actualizarPedido();
+        }
+
+        function actualizarPedido() {
+            let lista = document.getElementById('listaPedido');
+            lista.innerHTML = '';
+            for (let producto in pedido) {
+                let item = document.createElement('li');
+                item.innerText = `${producto}: ${pedido[producto].cantidad} × $${pedido[producto].precio} = $${pedido[producto].cantidad * pedido[producto].precio}`;
+                lista.appendChild(item);
+            }
+            document.getElementById('total').innerText = `Total: $${total}`;
+        }
+
+        function enviarInstagram() {
+            alert("Tu pedido se ha generado. Por favor envíanos un DM en Instagram @_candy_lul_ con tu pedido. ¡Gracias!");
+
+            // Abre Instagram en nueva pestaña
+            window.open('https://www.instagram.com/_candy_lul_/', '_blank');
+        }
+    </script>
+</body>
+</html>
