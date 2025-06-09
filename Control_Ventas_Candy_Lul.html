@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Control de Ventas - Candy Lul</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            color: #A00002;
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 14px 28px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            background-color: #4CAF50;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #reset {
+            background-color: #f44336;
+        }
+        #reset:hover {
+            background-color: #e53935;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 18px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #A00002;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📊 Control de Ventas - Candy Lul 📊</h1>
+
+<!-- Botones -->
+<button onclick="vender('Gloria')">+1 Gloria</button>
+<button onclick="vender('Skwinkle')">+1 Skwinkle</button>
+<button onclick="vender('Conejito')">+1 Conejito</button>
+<button onclick="vender('Bomboncitos')">+1 Bomboncitos</button>
+<button onclick="vender('Mazapan')">+1 Mazapán</button>
+<br>
+<button id="reset" onclick="resetearControl()">🔄 Resetear control</button>
+
+<!-- Tabla de control -->
+<table>
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Piezas Vendidas</th>
+            <th>Total $ Vendido</th>
+            <th>Costo Total $</th>
+            <th>Ganancia $</th>
+        </tr>
+    </thead>
+    <tbody id="tablaControl">
+        <!-- Se llenará dinámicamente -->
+    </tbody>
+    <tfoot>
+        <tr style="font-weight: bold;">
+            <td>Total</td>
+            <td id="totalPiezas">0</td>
+            <td id="totalVendido">$0</td>
+            <td id="totalCosto">$0</td>
+            <td id="totalGanancia">$0</td>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+const productos = {
+    'Gloria':    { precioVenta: 9, costo: 6, piezas: 0 },
+    'Skwinkle':  { precioVenta: 8, costo: 5, piezas: 0 },
+    'Conejito':  { precioVenta: 13, costo: 9, piezas: 0 },
+    'Bomboncitos':{ precioVenta: 13, costo: 6, piezas: 0 },
+    'Mazapan':   { precioVenta: 4, costo: 2, piezas: 0 }
+};
+
+function vender(producto) {
+    productos[producto].piezas++;
+    actualizarTabla();
+}
+
+function resetearControl() {
+    for (let prod in productos) {
+        productos[prod].piezas = 0;
+    }
+    actualizarTabla();
+    alert('Control reseteado ✅');
+}
+
+function actualizarTabla() {
+    const tabla = document.getElementById('tablaControl');
+    tabla.innerHTML = '';
+    let totalPiezas = 0, totalVendido = 0, totalCosto = 0, totalGanancia = 0;
+
+    for (let prod in productos) {
+        const data = productos[prod];
+        const vendido = data.piezas * data.precioVenta;
+        const costo = data.piezas * data.costo;
+        const ganancia = vendido - costo;
+
+        totalPiezas += data.piezas;
+        totalVendido += vendido;
+        totalCosto += costo;
+        totalGanancia += ganancia;
+
+        const row = `<tr>
+            <td>${prod}</td>
+            <td>${data.piezas}</td>
+            <td>$${vendido}</td>
+            <td>$${costo}</td>
+            <td>$${ganancia}</td>
+        </tr>`;
+        tabla.innerHTML += row;
+    }
+
+    document.getElementById('totalPiezas').textContent = totalPiezas;
+    document.getElementById('totalVendido').textContent = '$' + totalVendido;
+    document.getElementById('totalCosto').textContent = '$' + totalCosto;
+    document.getElementById('totalGanancia').textContent = '$' + totalGanancia;
+}
+
+// Inicializamos la tabla al cargar la página
+actualizarTabla();
+</script>
+
+</body>
+</html>
