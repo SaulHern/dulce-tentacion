@@ -39,26 +39,13 @@ function agregarProducto(nombre, precio, qtyId) {
     }
 
     actualizarMensajeInstagram();
-    // BOTÓN ANIMACIÓN REBOTE
+
+    // ANIMACIÓN BOTÓN
     const btnAgregar = document.querySelector(`button[onclick="agregarProducto('${nombre}', ${precio}, '${qtyId}')"]`);
     btnAgregar.classList.add('agregado');
     setTimeout(() => {
         btnAgregar.classList.remove('agregado');
     }, 500);
-
-    // BOTÓN ANIMACIÓN REBOTE
-    const btnAgregar = document.querySelector(`button[onclick="agregarProducto('${nombre}', ${precio}, '${qtyId}')"]`);
-    btnAgregar.classList.add('agregado');
-    setTimeout(() => {
-        btnAgregar.classList.remove('agregado');
-    }, 500);
-}
-
-        li.appendChild(btnEliminar);
-        document.getElementById('listaPedido').appendChild(li);
-    }
-
-    actualizarMensajeInstagram();
 }
 
 function actualizarMensajeInstagram() {
@@ -69,7 +56,7 @@ function actualizarMensajeInstagram() {
         return;
     }
 
-    let mensaje = '🛍️ *Pedido para Candy Lul* 🛍️\n\n';
+    let mensaje = '📦 *Pedido para Candy Lul* 📦\n\n';
     pedido.forEach(item => {
         mensaje += `- ${item.nombre}: $${item.precio}\n`;
     });
@@ -92,4 +79,9 @@ function enviarInstagram() {
     const mensaje = encodeURIComponent(document.getElementById('mensajeInstagram').textContent);
     const url = `https://www.instagram.com/_candy_lul_/`;
     window.open(url, '_blank');
+}
+
+function mostrarDudas() {
+    const dudasDiv = document.getElementById('dudas');
+    dudasDiv.classList.toggle('visible');
 }
