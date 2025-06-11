@@ -1,49 +1,179 @@
+body {
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+  background: #fafafa;
+  margin: 0;
+  padding: 0;
+}
 
-.productos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 columnas */
-    gap: 20px;
-    justify-items: center; /* centrar si queda impar */
-    margin: 20px;
+.banner {
+  width: 100%;
+  max-width: 100vw;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+}
+
+main {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  margin: 1em 0 0.5em 0;
+}
+
+.productos-lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
 }
 
 .producto {
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    background-color: #fff;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  padding: 1em;
+  margin-bottom: 1em;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .producto img {
-    width: 250px; /* aumentar tamaño */
-    height: auto;
-    border-radius: 8px;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  margin-bottom: 0.7em;
 }
-
+.producto input[type="number"] {
+  width: 60px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin: 0.3em 0 0.7em 0;
+  text-align: center;
+}
 .producto button {
-    font-size: 18px; /* aumentar tamaño del texto del botón */
-    padding: 12px 24px;
-    margin-top: 10px;
-    cursor: pointer;
-    background-color: #ff6699;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  cursor: pointer;
+  padding: 0.4em 0.7em;
+  transition: box-shadow 0.2s;
+}
+.producto button img {
+  width: 40px;
+  height: 40px;
+}
+.producto button:active, .producto button.agregado {
+  box-shadow: 0 0 0 3px #a5ee90;
 }
 
-.producto button:hover {
-    background-color: #ff3366;
+.carrito, .mensaje-envio {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin: 1em 0;
+  padding: 1em;
+  text-align: left;
 }
 
-/* Hacer el título de dudas frecuentes más visible */
-#dudas {
-    font-size: 32px;
-    margin-top: 100px;
-    border-top: 2px solid #ccc;
-    padding-top: 20px;
-    color: #333;
-    text-align: center;
+#listaPedido {
+  list-style: none;
+  padding: 0;
+}
+#listaPedido li {
+  margin: 0.2em 0;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#listaPedido button {
+  background: #fa6d86;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.2em;
+  width: 28px;
+  height: 28px;
+  margin-left: 0.7em;
+  border: none;
+}
+
+#total {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.acciones {
+  margin: 1.5em 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  justify-content: center;
+}
+.acciones button, .acciones a {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  background: #e7e7ff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.9em 1.2em;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  color: #414042;
+  transition: background 0.15s, transform 0.1s;
+}
+.acciones button img, .acciones a img, .btn-main {
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.acciones button:hover, .acciones a:hover {
+  background: #d1ebfa;
+  transform: scale(1.07);
+}
+
+.dudas-frecuentes {
+  margin: 1em 0;
+  background: #fffbe0;
+  border-radius: 16px;
+  padding: 1em;
+  font-size: 1em;
+  text-align: left;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+
+footer {
+  background: #f7f7f7;
+  font-size: 0.98em;
+  padding: 1.2em;
+  border-radius: 18px 18px 0 0;
+  margin-top: 2em;
+  text-align: center;
+}
+
+/* Responsive para celular */
+@media (max-width: 600px) {
+  main {
+    padding: 0.7em;
+  }
+  .producto {
+    width: 100%;
+    max-width: 290px;
+  }
+  .acciones button, .acciones a {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.1em;
+  }
 }
