@@ -7,25 +7,106 @@ body {
     padding: 20px;
     transition: background-color 0.3s, color 0.3s;
 }
-
+.banner {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 0 auto 20px;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+.producto {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 15px auto;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.producto:hover {
+    transform: scale(1.02);
+}
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.producto input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
 button {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 14px 24px;
+    padding: 12px 24px;
     margin-top: 10px;
-    border-radius: 25px;
-    font-size: 18px;
+    border-radius: 20px;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
-
 button:hover {
     background-color: #45a049;
     transform: scale(1.05);
 }
-
-.dark-mode {
+a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    background-color: #2196F3;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+a:hover {
+    background-color: #1976D2;
+    transform: scale(1.05);
+}
+#listaPedido {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+#listaPedido li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#mensajeInstagram {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #444;
+}
+body.dark-mode {
     background-color: #121212;
+    color: #e0e0e0;
+}
+body.dark-mode .producto {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+body.dark-mode #mensajeInstagram {
+    background-color: #1e1e1e;
+    border-color: #333;
     color: #e0e0e0;
 }
