@@ -2,28 +2,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Candy Lul - Inicio</title>
+    <meta charset="UTF-8" />
+    <title>Bienvenido a Candy Lul</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_mejorado.css">
-    <script src="script_mejorado.js" defer></script>
 </head>
 <body class="light-mode">
     <header>
-        <h1>Candy Lul</h1>
-        <p>Horario: Lunes a Viernes de 7:00 a 2:20</p>
-        <button onclick="toggleDarkMode()">🌙 Modo oscuro / ☀️ Modo claro</button>
+        <img src="images/banner.png" alt="Candy Lul Banner" class="banner">
     </header>
 
     <main>
-        <button onclick="window.location.href='Candy_Lul_Pedido.html'">🍬 Haz tu pedido</button>
-        <br><br>
-        <a href="https://wa.me/5210000000000?text=Hola%2C%20tengo%20una%20duda%20sobre%20los%20dulces." target="_blank">
-            📞 ¿Tienes dudas? Contáctanos por WhatsApp
-        </a>
+        <h1>Bienvenido a Candy Lul 🎀✨</h1>
+        <p class="intro-text">Elige tus dulces favoritos y haz tu pedido 💌<br>Para dudas, contáctanos 📲</p>
+
+        <div class="botones-inicio">
+            <a href="Candy_Lul_Pedido.html" class="btn-inicio-pedido">Haz tu pedido</a>
+            <a href="https://wa.me/525520708423" target="_blank" class="btn-whatsapp"></a>
+            <a href="https://www.instagram.com/_candy_lul_/" target="_blank" class="btn-instagram"></a>
+            <button class="btn-dudas" onclick="mostrarDudasInicio()"></button>
+        </div>
+
+        <!-- Dudas frecuentes inicio -->
+        <div id="dudasInicio" style="display:none; margin-top:15px; padding:10px; border:1px solid #ccc; border-radius:8px; background-color:#fff; color:#444;">
+            <ul>
+                <li>¿Cómo hago un pedido? → Entra en 'Haz tu pedido' y sigue los pasos.</li>
+                <li>¿Dónde lo envío? → A nuestro Instagram @_candy_lul_ o WhatsApp.</li>
+                <li>Horarios → Lunes a Viernes de 7:00 a 2:20.</li>
+                <li>¿Cómo me confirman? → Te confirmamos por DM o WhatsApp.</li>
+            </ul>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Candy Lul. Todos los derechos reservados.</p>
+        <p>© 2025 Candy Lul. Todos los derechos reservados. Instagram: @_candy_lul_</p>
     </footer>
+
+    <script>
+    function mostrarDudasInicio() {
+        const dudasDiv = document.getElementById('dudasInicio');
+        dudasDiv.style.display = (dudasDiv.style.display === 'none') ? 'block' : 'none';
+    }
+    </script>
 </body>
 </html>
