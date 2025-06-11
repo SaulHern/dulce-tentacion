@@ -1,0 +1,49 @@
+
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 columnas */
+    gap: 20px;
+    justify-items: center; /* centrar si queda impar */
+    margin: 20px;
+}
+
+.producto {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.producto img {
+    width: 250px; /* aumentar tamaño */
+    height: auto;
+    border-radius: 8px;
+}
+
+.producto button {
+    font-size: 18px; /* aumentar tamaño del texto del botón */
+    padding: 12px 24px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #ff6699;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.producto button:hover {
+    background-color: #ff3366;
+}
+
+/* Hacer el título de dudas frecuentes más visible */
+#dudas {
+    font-size: 32px;
+    margin-top: 100px;
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
+    color: #333;
+    text-align: center;
+}
