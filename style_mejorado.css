@@ -44,8 +44,8 @@ h1, h2, h3 {
   align-items: center;
 }
 .producto img {
-  width: 90px;
-  height: 90px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   margin-bottom: 0.7em;
 }
@@ -76,8 +76,8 @@ h1, h2, h3 {
   margin-top: 8px;
 }
 .producto button img {
-  width: 54px;
-  height: 54px;
+  width: 104px;
+  height: 104px;
 }
 .producto button:active,
 .producto button.agregado {
