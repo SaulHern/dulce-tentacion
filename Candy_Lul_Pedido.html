@@ -1,106 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Candy Lul - Haz tu pedido</title>
-  <link rel="stylesheet" href="style_mejorado.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="script_mejorado.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Lul - Haz tu pedido</title>
+    <link rel="stylesheet" href="style_mejorado.css">
+    <script src="script_mejorado.js" defer></script>
 </head>
-<body>
-  <header>
-    <img src="images/banner.png" alt="Candy Lul Banner" style="width:100%;max-width:600px;display:block;margin:auto;">
-    <h1>Candy Lul - Haz tu pedido</h1>
-  </header>
-  <main>
-    <div class="productos-lista">
-      <div class="producto">
-        <img src="images/skwinkle.jpg" alt="Skwinkle">
-        <p>Skwinkle - $8</p>
-        <input type="number" min="1" value="1" id="qty-Skwinkle">
-        <button onclick="agregarProducto('Skwinkle', 8, 'qty-Skwinkle')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-      <div class="producto">
-        <img src="images/conejito.jpg" alt="Conejito">
-        <p>Conejito - $13</p>
-        <input type="number" min="1" value="1" id="qty-Conejito">
-        <button onclick="agregarProducto('Conejito', 13, 'qty-Conejito')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-      <div class="producto">
-        <img src="images/bomboncitos.jpg" alt="Bomboncitos">
-        <p>Bomboncitos - $13</p>
-        <input type="number" min="1" value="1" id="qty-Bomboncitos">
-        <button onclick="agregarProducto('Bomboncitos', 13, 'qty-Bomboncitos')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-      <div class="producto">
-        <img src="images/mazapan.jpg" alt="Mazapán">
-        <p>Mazapán - $4</p>
-        <input type="number" min="1" value="1" id="qty-Mazapan">
-        <button onclick="agregarProducto('Mazapan', 4, 'qty-Mazapan')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-      <div class="producto">
-        <img src="images/malvabony.jpg" alt="Malva bony">
-        <p>Malva bony - $4</p>
-        <input type="number" min="1" value="1" id="qty-MalvaBony">
-        <button onclick="agregarProducto('Malva bony', 4, 'qty-MalvaBony')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-      <div class="producto">
-        <img src="images/dubalin.jpg" alt="Dubalín">
-        <p>Dubalín - $3</p>
-        <input type="number" min="1" value="1" id="qty-Dubalin">
-        <button onclick="agregarProducto('Dubalín', 3, 'qty-Dubalin')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-      <div class="producto">
-        <img src="images/winis.jpg" alt="Winis">
-        <p>Winis - $3</p>
-        <input type="number" min="1" value="1" id="qty-Winis">
-        <button onclick="agregarProducto('Winis', 3, 'qty-Winis')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-      <div class="producto">
-        <img src="images/karlas.jpg" alt="Karlas">
-        <p>Karlas - $10</p>
-        <input type="number" min="1" value="1" id="qty-Karlas">
-        <button onclick="agregarProducto('Karlas', 10, 'qty-Karlas')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-      <div class="producto">
-        <img src="images/dragoncitos.jpg" alt="Dragoncitos">
-        <p>Dragoncitos - $1</p>
-        <input type="number" min="1" value="1" id="qty-Dragoncitos">
-        <button onclick="agregarProducto('Dragoncitos', 1, 'qty-Dragoncitos')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-      <div class="producto">
-        <img src="images/bolsita_gomitas.jpg" alt="Bolsitas de gomitas">
-        <p>Bolsitas de gomitas - $10</p>
-        <input type="number" min="1" value="1" id="qty-Gomitas">
-        <button onclick="agregarProducto('Bolsitas de gomitas', 10, 'qty-Gomitas')">
-          <img src="images/1.png" alt="Agregar" style="height:38px;">
-        </button>
-      </div>
-    </div>
+<body class="light-mode">
+    <header>
+        <h1>Bienvenido a Candy Lul 🍬✨</h1>
+        <button onclick="toggleDarkMode()">🌙 Modo oscuro / 🌞 Modo claro</button>
+    </header>
+    
+    <main>
+        <h2>Elige tus dulces favoritos y haz tu pedido 🍬</h2>
+        <div class="productos-lista">
+            <div class="producto">
+                <img src="images/gloria.jpg" alt="Gloria">
+                <p>Gloria - $9</p>
+                <input type="number" min="1" value="1" id="qty-Gloria">
+                <button onclick="agregarProducto('Gloria', 9, 'qty-Gloria')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
 
-    <!-- Aquí pon tu sección de carrito, mensaje y botones adicionales -->
+            <div class="producto">
+                <img src="images/swinkle.jpg" alt="Swinkle">
+                <p>Swinkle - $8</p>
+                <input type="number" min="1" value="1" id="qty-Swinkle">
+                <button onclick="agregarProducto('Swinkle', 8, 'qty-Swinkle')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
 
-  </main>
-  <footer>
-    <p>&copy; 2025 Candy Lul. Todos los derechos reservados. Instagram: @_candy_lul_</p>
-  </footer>
+            <div class="producto">
+                <img src="images/conejito.jpg" alt="Conejito">
+                <p>Conejito - $13</p>
+                <input type="number" min="1" value="1" id="qty-Conejito">
+                <button onclick="agregarProducto('Conejito', 13, 'qty-Conejito')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="images/bomboncitos.jpg" alt="Bomboncitos">
+                <p>Bomboncitos - $13</p>
+                <input type="number" min="1" value="1" id="qty-Bomboncitos">
+                <button onclick="agregarProducto('Bomboncitos', 13, 'qty-Bomboncitos')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="images/mazpan.jpg" alt="Mazpan">
+                <p>Mazpan - $4</p>
+                <input type="number" min="1" value="1" id="qty-Mazpan">
+                <button onclick="agregarProducto('Mazpan', 4, 'qty-Mazpan')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="images/malva_bony.jpg" alt="Malva Bony">
+                <p>Malva Bony - $4</p>
+                <input type="number" min="1" value="1" id="qty-MalvaBony">
+                <button onclick="agregarProducto('Malva Bony', 4, 'qty-MalvaBony')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="images/dubalin.jpg" alt="Dubalin">
+                <p>Dubalin - $3</p>
+                <input type="number" min="1" value="1" id="qty-Dubalin">
+                <button onclick="agregarProducto('Dubalin', 3, 'qty-Dubalin')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="images/winis.jpg" alt="Winis">
+                <p>Winis - $3</p>
+                <input type="number" min="1" value="1" id="qty-Winis">
+                <button onclick="agregarProducto('Winis', 3, 'qty-Winis')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="images/karlas.jpg" alt="Karlas">
+                <p>Karlas - $10</p>
+                <input type="number" min="1" value="1" id="qty-Karlas">
+                <button onclick="agregarProducto('Karlas', 10, 'qty-Karlas')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="images/dragoncitos.jpg" alt="Dragoncitos">
+                <p>Dragoncitos - $1</p>
+                <input type="number" min="1" value="1" id="qty-Dragoncitos">
+                <button onclick="agregarProducto('Dragoncitos', 1, 'qty-Dragoncitos')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
+
+            <div class="producto">
+                <img src="images/bolisita_gomitas.jpg" alt="Bolsitas de gomitas">
+                <p>Bolsitas de gomitas - $10</p>
+                <input type="number" min="1" value="1" id="qty-BolsitasGomitas">
+                <button onclick="agregarProducto('Bolsitas de gomitas', 10, 'qty-BolsitasGomitas')">
+                    <img src="images/btn_agregar.png" alt="Agregar">
+                </button>
+            </div>
+        </div>
+
+        <h2>Tu pedido:</h2>
+        <ul id="listaPedido"></ul>
+
+        <button onclick="copiarMensaje()">📋 Copiar mensaje</button>
+        <button onclick="enviarInstagram()">📱 Enviar pedido por Instagram</button>
+        <a href="index.html">🕶 Volver al inicio</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Candy Lul. Todos los derechos reservados. Instagram: @_candy_lul_</p>
+    </footer>
 </body>
 </html>
