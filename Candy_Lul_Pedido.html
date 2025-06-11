@@ -18,57 +18,57 @@
         <!-- Productos -->
         <div class="producto"><img src="images/gloria.jpg" alt="Gloria"/><p>Gloria - $9</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Gloria"/>
-            <button onclick="agregarProducto('Gloria', 9, 'qty-Gloria')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Gloria', 9, 'qty-Gloria')"></button>
         </div>
 
         <div class="producto"><img src="images/skwinkle.jpg" alt="Skwinkle"/><p>Skwinkle - $8</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Skwinkle"/>
-            <button onclick="agregarProducto('Skwinkle', 8, 'qty-Skwinkle')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Skwinkle', 8, 'qty-Skwinkle')"></button>
         </div>
 
         <div class="producto"><img src="images/conejito.jpg" alt="Conejito"/><p>Conejito - $13</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Conejito"/>
-            <button onclick="agregarProducto('Conejito', 13, 'qty-Conejito')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Conejito', 13, 'qty-Conejito')"></button>
         </div>
 
         <div class="producto"><img src="images/bomboncitos.jpg" alt="Bomboncitos"/><p>Bomboncitos - $13</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Bomboncitos"/>
-            <button onclick="agregarProducto('Bomboncitos', 13, 'qty-Bomboncitos')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Bomboncitos', 13, 'qty-Bomboncitos')"></button>
         </div>
 
         <div class="producto"><img src="images/mazapan.jpg" alt="Mazapán"/><p>Mazapán - $4</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Mazapan"/>
-            <button onclick="agregarProducto('Mazapán', 4, 'qty-Mazapan')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Mazapán', 4, 'qty-Mazapan')"></button>
         </div>
 
-        <div class="producto"><img src="images/malvavon.jpg" alt="Malvavón"/><p>Malvavón - $4</p>
+        <div class="producto"><img src="images/malvavon.jpg" alt="Malva Bony"/><p>Malva Bony - $4</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Malvavon"/>
-            <button onclick="agregarProducto('Malvavón', 4, 'qty-Malvavon')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Malva Bony', 4, 'qty-Malvavon')"></button>
         </div>
 
         <div class="producto"><img src="images/dubalin.jpg" alt="Dubalín"/><p>Dubalín - $3</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Dubalin"/>
-            <button onclick="agregarProducto('Dubalín', 3, 'qty-Dubalin')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Dubalín', 3, 'qty-Dubalin')"></button>
         </div>
 
-        <div class="producto"><img src="images/gwynis.jpg" alt="Gwynis"/><p>Gwynis - $3</p>
+        <div class="producto"><img src="images/gwynis.jpg" alt="Winis"/><p>Winis - $3</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Gwynis"/>
-            <button onclick="agregarProducto('Gwynis', 3, 'qty-Gwynis')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Winis', 3, 'qty-Gwynis')"></button>
         </div>
 
         <div class="producto"><img src="images/karlas.jpg" alt="Karlas"/><p>Karlas - $10</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Karlas"/>
-            <button onclick="agregarProducto('Karlas', 10, 'qty-Karlas')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Karlas', 10, 'qty-Karlas')"></button>
         </div>
 
         <div class="producto"><img src="images/dragoncitos.jpg" alt="Dragoncitos"/><p>Dragoncitos - $1</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Dragoncitos"/>
-            <button onclick="agregarProducto('Dragoncitos', 1, 'qty-Dragoncitos')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Dragoncitos', 1, 'qty-Dragoncitos')"></button>
         </div>
 
         <div class="producto"><img src="images/gomitas.jpg" alt="Bolsitas de gomitas"/><p>Bolsitas de gomitas - $10</p>
             Cantidad: <input type="number" min="1" value="1" id="qty-Gomitas"/>
-            <button onclick="agregarProducto('Bolsitas de gomitas', 10, 'qty-Gomitas')">Agregar</button>
+            <button class="btn-agregar" onclick="agregarProducto('Bolsitas de gomitas', 10, 'qty-Gomitas')"></button>
         </div>
 
         <!-- Carrito -->
@@ -79,11 +79,11 @@
         <p><strong>Total:</strong> <span id="total">$0</span></p>
 
         <!-- Botones -->
-        <button onclick="copiarMensaje()">📋 Copiar mensaje</button>
-        <button onclick="enviarInstagram()">📸 Enviar pedido por Instagram</button>
-        <button onclick="enviarWhatsApp()">📱 Enviar pedido por WhatsApp</button>
-        <button onclick="mostrarDudas()">❓ Dudas frecuentes</button>
-        <a href="index.html">🏠 Volver al inicio</a>
+        <button class="btn-copiar" onclick="copiarMensaje()"></button>
+        <button class="btn-instagram" onclick="enviarInstagram()"></button>
+        <button class="btn-whatsapp" onclick="enviarWhatsApp()"></button>
+        <button class="btn-dudas" onclick="mostrarDudas()"></button>
+        <a href="index.html" class="btn-inicio"></a>
 
         <!-- Dudas frecuentes -->
         <div id="dudas" style="display:none; margin-top:15px; padding:10px; border:1px solid #ccc; border-radius:8px; background-color:#fff; color:#444;">

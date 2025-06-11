@@ -42,35 +42,6 @@ h1, h2, h3 {
     border: 1px solid #ccc;
     border-radius: 6px;
 }
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    margin-top: 10px;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-a {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    background-color: #2196F3;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 20px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-a:hover {
-    background-color: #1976D2;
-    transform: scale(1.05);
-}
 #listaPedido {
     list-style: none;
     padding: 0;
@@ -109,4 +80,66 @@ body.dark-mode #mensajeInstagram {
     background-color: #1e1e1e;
     border-color: #333;
     color: #e0e0e0;
+}
+
+/* Botones personalizados con imágenes */
+.btn-agregar {
+    background: url('images/btn_agregar.png') no-repeat center center;
+    background-size: contain;
+    width: 150px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+.btn-copiar {
+    background: url('images/btn_copiar.png') no-repeat center center;
+    background-size: contain;
+    width: 200px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+.btn-instagram {
+    background: url('images/btn_instagram.png') no-repeat center center;
+    background-size: contain;
+    width: 200px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+.btn-whatsapp {
+    background: url('images/btn_whatsapp.png') no-repeat center center;
+    background-size: contain;
+    width: 200px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+.btn-dudas {
+    background: url('images/btn_dudas.png') no-repeat center center;
+    background-size: contain;
+    width: 200px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+.btn-inicio {
+    background: url('images/btn_inicio.png') no-repeat center center;
+    background-size: contain;
+    width: 200px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    text-indent: -9999px; /* oculta texto */
 }
