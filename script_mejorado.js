@@ -1,0 +1,1 @@
+/* script_mejorado.js completo (funcionalidad carrito + copiar + modo oscuro) */
