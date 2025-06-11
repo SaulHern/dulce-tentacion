@@ -1,99 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candy Lul - Haz tu pedido</title>
-    <link rel="stylesheet" href="style_mejorado.css">
-    <script src="script_mejorado.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pide tus dulces | Candy Lul</title>
+  <link rel="stylesheet" href="style_mejorado.css">
+  <script src="script_mejorado.js" defer></script>
 </head>
 <body>
-    <header>
-        <img src="images/banner.png" alt="Banner Candy Lul" class="banner-img">
-        <h1>Candy Lul - Haz tu pedido</h1>
-    </header>
-    <main>
-        <div class="productos-lista">
-            <!-- EJEMPLO DE PRODUCTO -->
-            <div class="producto">
-                <img src="images/winis.jpg" alt="Winis">
-                <p>Winis - $3</p>
-                <input type="number" min="1" value="1" id="qty-Winis">
-                <button onclick="agregarProducto('Winis', 3, 'qty-Winis')">
-                    <img src="images/btn_agregar.png" alt="Agregar">
-                </button>
-            </div>
-            <div class="producto">
-                <img src="images/karlas.jpg" alt="Karlas">
-                <p>Karlas - $10</p>
-                <input type="number" min="1" value="1" id="qty-Karlas">
-                <button onclick="agregarProducto('Karlas', 10, 'qty-Karlas')">
-                    <img src="images/btn_agregar.png" alt="Agregar">
-                </button>
-            </div>
-            <div class="producto">
-                <img src="images/dragoncitos.jpg" alt="Dragoncitos">
-                <p>Dragoncitos - $1</p>
-                <input type="number" min="1" value="1" id="qty-Dragoncitos">
-                <button onclick="agregarProducto('Dragoncitos', 1, 'qty-Dragoncitos')">
-                    <img src="images/btn_agregar.png" alt="Agregar">
-                </button>
-            </div>
-            <div class="producto">
-                <img src="images/bolsita_gomitas.jpg" alt="Bolsitas de gomitas">
-                <p>Bolsitas de gomitas - $10</p>
-                <input type="number" min="1" value="1" id="qty-BolsitasGomitas">
-                <button onclick="agregarProducto('Bolsitas de gomitas', 10, 'qty-BolsitasGomitas')">
-                    <img src="images/btn_agregar.png" alt="Agregar">
-                </button>
-            </div>
-            <!-- AGREGA AQUÍ TUS OTROS PRODUCTOS IGUAL -->
-        </div>
-
-        <section class="pedido">
-            <h2>🛒 Tu pedido:</h2>
-            <ul id="listaPedido"></ul>
-        </section>
-
-        <section class="mensaje">
-            <h3>📲 Mensaje para enviar:</h3>
-            <div id="mensajeInstagram">(Tu pedido aparecerá aquí cuando agregues productos)</div>
-            <div>
-                <strong>Total:</strong> <span id="total">$0</span>
-            </div>
-        </section>
-
-        <section class="botones-acciones">
-            <button onclick="copiarMensaje()">
-                <img src="images/btn_copiar.png" alt="Copiar mensaje">
-            </button>
-            <button onclick="enviarInstagram()">
-                <img src="images/btn_instagram.png" alt="Enviar pedido por Instagram">
-            </button>
-            <button onclick="enviarWhatsApp()">
-                <img src="images/btn_whatsapp.png" alt="Enviar pedido por WhatsApp">
-            </button>
-            <button onclick="mostrarDudas()">
-                <img src="images/btn_dudas.png" alt="Dudas frecuentes">
-            </button>
-            <a href="index.html">
-                <img src="images/btn_inicio.png" alt="Volver al inicio">
-            </a>
-        </section>
-
-        <section id="dudas" style="display:none; margin: 20px 0;">
-            <h3>❓ Dudas frecuentes</h3>
-            <ul>
-                <li>¿Cómo hago un pedido? – Agrega los productos y copia el mensaje.</li>
-                <li>¿Dónde lo envío? – Nuestro Instagram @_candy_lul_ o WhatsApp.</li>
-                <li>¿Horarios de atención? – Lunes a Viernes de 7:00 a 22:00.</li>
-                <li>¿Cuándo me confirman? – Te confirmamos por mensaje directo.</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Candy Lul. Todos los derechos reservados.<br>
-        Instagram: @_candy_lul_</p>
-    </footer>
+  <header>
+    <img src="images/banner.png" alt="Candy Lul Banner" class="banner">
+  </header>
+  <main>
+    <h1>Haz tu pedido 🍭</h1>
+    <div id="productos" class="productos-lista">
+      <!-- PRODUCTOS (pon tus imágenes en la carpeta images con estos nombres) -->
+      <div class="producto">
+        <img src="images/gloria.jpg" alt="Gloria">
+        <p>Gloria - $9</p>
+        <input type="number" min="1" value="1" id="qty-Gloria">
+        <button onclick="agregarProducto('Gloria', 9, 'qty-Gloria')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/swinkle.jpg" alt="Swinkle">
+        <p>Swinkle - $8</p>
+        <input type="number" min="1" value="1" id="qty-Swinkle">
+        <button onclick="agregarProducto('Swinkle', 8, 'qty-Swinkle')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/conejito.jpg" alt="Conejito">
+        <p>Conejito - $13</p>
+        <input type="number" min="1" value="1" id="qty-Conejito">
+        <button onclick="agregarProducto('Conejito', 13, 'qty-Conejito')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/bomboncitos.jpg" alt="Bomboncitos">
+        <p>Bomboncitos - $13</p>
+        <input type="number" min="1" value="1" id="qty-Bomboncitos">
+        <button onclick="agregarProducto('Bomboncitos', 13, 'qty-Bomboncitos')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/mazapan.jpg" alt="Mazapán">
+        <p>Mazapán - $4</p>
+        <input type="number" min="1" value="1" id="qty-Mazapan">
+        <button onclick="agregarProducto('Mazapan', 4, 'qty-Mazapan')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/malva_bony.jpg" alt="Malva bony">
+        <p>Malva bony - $4</p>
+        <input type="number" min="1" value="1" id="qty-MalvaBony">
+        <button onclick="agregarProducto('Malva bony', 4, 'qty-MalvaBony')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/dubalin.jpg" alt="Dubalín">
+        <p>Dubalín - $3</p>
+        <input type="number" min="1" value="1" id="qty-Dubalin">
+        <button onclick="agregarProducto('Dubalín', 3, 'qty-Dubalin')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/winis.jpg" alt="Winis">
+        <p>Winis - $3</p>
+        <input type="number" min="1" value="1" id="qty-Winis">
+        <button onclick="agregarProducto('Winis', 3, 'qty-Winis')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/karlas.jpg" alt="Karlas">
+        <p>Karlas - $10</p>
+        <input type="number" min="1" value="1" id="qty-Karlas">
+        <button onclick="agregarProducto('Karlas', 10, 'qty-Karlas')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/dragoncitos.jpg" alt="Dragoncitos">
+        <p>Dragoncitos - $1</p>
+        <input type="number" min="1" value="1" id="qty-Dragoncitos">
+        <button onclick="agregarProducto('Dragoncitos', 1, 'qty-Dragoncitos')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+      <div class="producto">
+        <img src="images/gomitas.jpg" alt="Bolsitas de gomitas">
+        <p>Bolsitas de gomitas - $10</p>
+        <input type="number" min="1" value="1" id="qty-Gomitas">
+        <button onclick="agregarProducto('Bolsitas de gomitas', 10, 'qty-Gomitas')"><img src="images/1.png" alt="Agregar"></button>
+      </div>
+    </div>
+    <!-- Carrito -->
+    <section class="carrito">
+      <h2><img src="images/cart.png" alt="" style="height: 1.5em;vertical-align:middle;"> Tu pedido:</h2>
+      <ul id="listaPedido"></ul>
+      <p><strong>Total:</strong> <span id="total">$0</span></p>
+    </section>
+    <!-- Mensaje para enviar -->
+    <section class="mensaje-envio">
+      <h3><img src="images/message.png" alt="" style="height:1.2em;vertical-align:middle;"> Mensaje para enviar:</h3>
+      <div id="mensajeInstagram">(Tu pedido aparecerá aquí cuando agregues productos)</div>
+    </section>
+    <!-- Botones de acción -->
+    <div class="acciones">
+      <button onclick="copiarMensaje()"><img src="images/2.png" alt=""> Copiar mensaje</button>
+      <button onclick="enviarInstagram()"><img src="images/6.png" alt=""> Enviar por Instagram</button>
+      <button onclick="enviarWhatsApp()"><img src="images/4.png" alt=""> WhatsApp</button>
+      <button onclick="mostrarDudas()"><img src="images/5.png" alt=""> Dudas frecuentes</button>
+      <a href="index.html"><img src="images/3.png" alt=""> Volver al inicio</a>
+    </div>
+    <!-- Dudas frecuentes -->
+    <div id="dudas" class="dudas-frecuentes" style="display:none">
+      <ul>
+        <li>¿Cómo hago un pedido? Agrega los productos y copia el mensaje.</li>
+        <li>¿Dónde lo envío? A nuestro Instagram @_candy_lul_ o WhatsApp.</li>
+        <li>Horario: Lunes a Viernes de 7:00 a 2:20.</li>
+        <li>¿Cómo me contactan? Te confirmamos por DM.</li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Candy Lul. Todos los derechos reservados. Instagram: @_candy_lul_</p>
+  </footer>
 </body>
 </html>
