@@ -57,22 +57,35 @@ h1, h2, h3 {
   margin: 0.3em 0 0.7em 0;
   text-align: center;
 }
+
+/* --- Botón de agregar grande, solo ícono --- */
 .producto button {
-  background: transparent;
+  background: #e7fbe7;
   border: none;
   outline: none;
-  border-radius: 16px;
+  border-radius: 36px;
   cursor: pointer;
-  padding: 0.4em 0.7em;
-  transition: box-shadow 0.2s;
+  padding: 0.5em 0.5em;
+  min-width: 70px;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(46,204,113,0.14);
+  transition: background 0.18s, transform 0.12s;
+  margin-top: 8px;
 }
 .producto button img {
-  width: 40px;
-  height: 40px;
+  width: 54px;
+  height: 54px;
 }
-.producto button:active, .producto button.agregado {
-  box-shadow: 0 0 0 3px #a5ee90;
+.producto button:active,
+.producto button.agregado {
+  background: #b6ebb6;
+  transform: scale(1.13);
 }
+
+/* ------------------------------------------ */
 
 .carrito, .mensaje-envio {
   background: #fff;
