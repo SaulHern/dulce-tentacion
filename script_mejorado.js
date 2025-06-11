@@ -1,1 +1,1 @@
-/* script_mejorado.js funcional con carrito, copiar, modo oscuro, etc. */
+/* script_mejorado.js completo (funcionalidad carrito + copiar + modo oscuro) */
