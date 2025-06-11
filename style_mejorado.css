@@ -44,8 +44,8 @@ h1, h2, h3 {
   align-items: center;
 }
 .producto img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   margin-bottom: 0.7em;
 }
@@ -66,8 +66,8 @@ h1, h2, h3 {
   border-radius: 36px;
   cursor: pointer;
   padding: 0.5em 0.5em;
-  min-width: 70px;
-  min-height: 70px;
+  min-width: 150px;
+  min-height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,8 +76,8 @@ h1, h2, h3 {
   margin-top: 8px;
 }
 .producto button img {
-  width: 104px;
-  height: 104px;
+  width: 200px;
+  height: 200px;
 }
 .producto button:active,
 .producto button.agregado {
