@@ -166,3 +166,11 @@ footer {
 .hidden {
     display: none;
 }
+
+/* Iconos de redes en botones */
+.icono-red {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
