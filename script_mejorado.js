@@ -1,77 +1,245 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loginModal = document.getElementById('loginModal');
-    const loginButton = document.getElementById('loginButton');
-    const usernameInput = document.getElementById('usernameInput');
-    const logoutButton = document.getElementById('logoutButton');
-    const addCartButtons = document.querySelectorAll('.add-cart-btn');
-    const carrito = document.getElementById('carrito');
-    const cartItemsList = document.getElementById('cartItems');
-    const sendWhatsappButton = document.getElementById('sendWhatsappButton');
-    const instagramSection = document.querySelector('.instagram-section');
+// ------------------- Variables generales ---------------------
+const preguntasFrecuentes = [
+    {
+        pregunta: "¿Cuál es el horario de atención?",
+        respuesta: "Mi horario es de 7:00 a 14:20 de lunes a viernes."
+    },
+    {
+        pregunta: "¿Cuánto tiempo tarda en llegar mi pedido?",
+        respuesta: "¡Menos de 10 minutos!"
+    },
+    {
+        pregunta: "¿Se aceptan pagos con efectivo?",
+        respuesta: "Sí, solo aceptamos efectivo."
+    },
+    {
+        pregunta: "¿Puedo hacer pedidos anticipados?",
+        respuesta: "Sí, puedes hacer pedidos anticipados."
+    },
+    {
+        pregunta: "¿Hacen envíos a domicilio?",
+        respuesta: "No, no hacemos envíos a domicilio."
+    },
+    {
+        pregunta: "¿Tienen promociones?",
+        respuesta: "Las promociones se empezarán a agregar a la página."
+    },
+    {
+        pregunta: "¿Cómo hago mi pedido?",
+        respuesta: "Solo agrégalo al carrito y haz clic en “Enviar pedido por WhatsApp”."
+    },
+    {
+        pregunta: "¿Puedo hacer varias compras al día?",
+        respuesta: "Sí, puedes pedir cuantas veces quieras durante el horario."
+    },
+    {
+        pregunta: "¿Dónde veo mi carrito?",
+        respuesta: "Puedes ver tu carrito en la página principal y también desde el botón en la sección de dudas frecuentes."
+    }
+];
 
-    let cart = [];
+// ------------------- Login y sesión ---------------------
+function obtenerUsuario() {
+    return sessionStorage.getItem('username') || '';
+}
 
-    if (sessionStorage.getItem('loggedIn')) {
-        showProtectedContent();
-        loginModal.style.display = 'none';
+function mostrarNombreUsuario() {
+    const nombre = obtenerUsuario();
+    if (document.getElementById('nombreUsuarioHeader'))
+        document.getElementById('nombreUsuarioHeader').textContent = nombre ? `Hola, ${nombre}!` : '';
+    if (document.getElementById('nombreUsuarioFAQ'))
+        document.getElementById('nombreUsuarioFAQ').textContent = nombre ? `Cuenta: ${nombre}` : '';
+}
+
+function loginCheck() {
+    if (!obtenerUsuario()) {
+        if (document.getElementById('loginModal')) {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
     } else {
-        loginModal.style.display = 'flex';
+        mostrarNombreUsuario();
+        if (document.getElementById('loginModal')) {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+        mostrarElementosProtegidos();
     }
+}
 
-    loginButton.addEventListener('click', () => {
-        const username = usernameInput.value.trim();
-        if (username !== '') {
-            sessionStorage.setItem('loggedIn', 'true');
-            showProtectedContent();
-            loginModal.style.display = 'none';
-        } else {
-            alert('Por favor ingresa tu nombre.');
+function logout() {
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('loggedIn');
+    location.href = "index.html";
+}
+
+// ------------------- Carrito ---------------------
+function obtenerCarrito() {
+    const carrito = sessionStorage.getItem('cart');
+    return carrito ? JSON.parse(carrito) : [];
+}
+function guardarCarrito(carrito) {
+    sessionStorage.setItem('cart', JSON.stringify(carrito));
+}
+
+function agregarAlCarrito(producto, precio) {
+    let carrito = obtenerCarrito();
+    const idx = carrito.findIndex(p => p.producto === producto);
+    if (idx >= 0) {
+        carrito[idx].cantidad += 1;
+    } else {
+        carrito.push({ producto, precio, cantidad: 1 });
+    }
+    guardarCarrito(carrito);
+    mostrarCarrito();
+}
+
+function quitarDelCarrito(producto) {
+    let carrito = obtenerCarrito();
+    carrito = carrito.filter(p => p.producto !== producto);
+    guardarCarrito(carrito);
+    mostrarCarrito();
+}
+
+function mostrarCarrito() {
+    const carrito = obtenerCarrito();
+    if (!document.getElementById('cartItems')) return;
+    const cartItemsList = document.getElementById('cartItems');
+    cartItemsList.innerHTML = '';
+    let total = 0;
+    carrito.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.producto} (${item.cantidad}) - $${item.precio * item.cantidad}`;
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remover';
+        removeBtn.onclick = () => quitarDelCarrito(item.producto);
+        li.appendChild(removeBtn);
+        cartItemsList.appendChild(li);
+        total += item.precio * item.cantidad;
+    });
+    // Muestra el total antes del botón de WhatsApp
+    let totalDiv = document.getElementById('carritoTotal');
+    if (!totalDiv) {
+        totalDiv = document.createElement('div');
+        totalDiv.id = 'carritoTotal';
+        totalDiv.style.margin = "15px 0 5px 0";
+        cartItemsList.parentElement.insertBefore(totalDiv, document.getElementById('sendWhatsappButton'));
+    }
+    totalDiv.innerHTML = `<strong>Total: $${total}</strong>`;
+}
+
+function enviarPedidoWhatsApp() {
+    const carrito = obtenerCarrito();
+    if (!carrito.length) {
+        alert("¡Tu carrito está vacío!");
+        return;
+    }
+    let msg = "🛒 *Pedido para Candy Lul* 🛒\n\n";
+    carrito.forEach(item => {
+        msg += `- ${item.producto}: $${item.precio * item.cantidad}\n`;
+    });
+    let total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+    msg += `\n*Total:* $${total}\n\n_Solo efectivo_\n\nEnviado desde https://candylul.github.io/dulce-tentacion/`;
+    const url = `https://wa.me/525520708423?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+}
+
+// ------------------- Productos y botones ---------------------
+function prepararBotonesProductos() {
+    document.querySelectorAll('.add-cart-btn').forEach(btn => {
+        btn.classList.remove('hidden');
+        btn.onclick = function() {
+            const card = this.closest('.producto');
+            const producto = card.querySelector('h3').textContent.trim();
+            const precio = parseFloat(card.querySelector('.precio').textContent.replace(/[^0-9.]/g, ''));
+            agregarAlCarrito(producto, precio);
         }
     });
+}
 
-    logoutButton.addEventListener('click', () => {
-        sessionStorage.removeItem('loggedIn');
-        location.reload();
+// ------------------- Dudas Frecuentes (FAQ) ---------------------
+function mostrarPreguntasFrecuentes() {
+    const faqList = document.getElementById('faqList');
+    if (!faqList) return;
+    faqList.innerHTML = '';
+    preguntasFrecuentes.forEach(item => {
+        const li = document.createElement('li');
+        li.className = "faq-item";
+        li.innerHTML = `<strong>${item.pregunta}</strong><br><span>${item.respuesta}</span>`;
+        faqList.appendChild(li);
     });
-
-    addCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const producto = button.parentElement.querySelector('h3').innerText;
-            cart.push(producto);
-            updateCart();
-        });
-    });
-
-    sendWhatsappButton.addEventListener('click', () => {
-        if (cart.length === 0) {
-            alert('Tu carrito está vacío.');
-            return;
-        }
-        const message = `Hola, quiero hacer un pedido:\n- ${cart.join('\n- ')}`;
-        const url = `https://wa.me/525520708423?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
-    });
-
-    function updateCart() {
-        cartItemsList.innerHTML = '';
-        cart.forEach((item, index) => {
+}
+function buscarPreguntasFrecuentes() {
+    const val = (document.getElementById('searchInput')?.value || '').toLowerCase();
+    const faqList = document.getElementById('faqList');
+    if (!faqList) return;
+    faqList.innerHTML = '';
+    preguntasFrecuentes.forEach(item => {
+        if (
+            item.pregunta.toLowerCase().includes(val) ||
+            item.respuesta.toLowerCase().includes(val)
+        ) {
             const li = document.createElement('li');
-            li.textContent = item + ' ';
-            const removeBtn = document.createElement('button');
-            removeBtn.textContent = 'Remover';
-            removeBtn.addEventListener('click', () => {
-                cart.splice(index, 1);
-                updateCart();
-            });
-            li.appendChild(removeBtn);
-            cartItemsList.appendChild(li);
-        });
+            li.className = "faq-item";
+            li.innerHTML = `<strong>${item.pregunta}</strong><br><span>${item.respuesta}</span>`;
+            faqList.appendChild(li);
+        }
+    });
+}
+
+// ------------------- Navegación FAQ y volver a carrito/inicio ---------------------
+function prepararNavegacionFAQ() {
+    // Volver a inicio
+    const volverInicio = document.getElementById('volverInicio');
+    if (volverInicio) {
+        volverInicio.onclick = () => window.location.href = "index.html";
+    }
+    // Carrito en FAQ
+    const btnCarrito = document.getElementById('btnCarrito');
+    if (btnCarrito) {
+        btnCarrito.onclick = () => window.location.href = "index.html#carrito";
+    }
+}
+
+// ------------------- Mostrar elementos protegidos (después de login) ---------------------
+function mostrarElementosProtegidos() {
+    if (document.getElementById('carrito')) document.getElementById('carrito').classList.remove('hidden');
+    if (document.querySelector('.instagram-section')) document.querySelector('.instagram-section').classList.remove('hidden');
+    if (document.getElementById('logoutButton')) document.getElementById('logoutButton').classList.remove('hidden');
+    prepararBotonesProductos();
+    mostrarCarrito();
+}
+
+// ------------------- DOMContentLoaded / Main ---------------------
+document.addEventListener('DOMContentLoaded', () => {
+    // Login general
+    if (document.getElementById('loginButton')) {
+        document.getElementById('loginButton').onclick = () => {
+            const username = document.getElementById('usernameInput').value.trim();
+            if (username) {
+                sessionStorage.setItem('username', username);
+                loginCheck();
+            } else {
+                alert('Por favor ingresa tu nombre.');
+            }
+        }
+    }
+    if (document.getElementById('logoutButton')) {
+        document.getElementById('logoutButton').onclick = logout;
     }
 
-    function showProtectedContent() {
-        addCartButtons.forEach(btn => btn.classList.remove('hidden'));
-        carrito.classList.remove('hidden');
-        instagramSection.classList.remove('hidden');
-        logoutButton.classList.remove('hidden');
+    // Login check y nombre
+    loginCheck();
+
+    // Productos y carrito
+    if (document.querySelector('.add-cart-btn')) prepararBotonesProductos();
+    if (document.getElementById('sendWhatsappButton')) {
+        document.getElementById('sendWhatsappButton').onclick = enviarPedidoWhatsApp;
     }
+    mostrarCarrito();
+
+    // FAQ
+    if (document.getElementById('faqList')) mostrarPreguntasFrecuentes();
+    if (document.getElementById('searchInput')) {
+        document.getElementById('searchInput').oninput = buscarPreguntasFrecuentes;
+    }
+    prepararNavegacionFAQ();
 });
