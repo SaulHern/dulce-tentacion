@@ -68,7 +68,7 @@ aside {
 }
 
 .producto button {
-    background-color: #6b4f3b;
+    background-color: #999999; /* gris bonito */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -78,7 +78,7 @@ aside {
 }
 
 .producto button:hover {
-    background-color: #4a3627;
+    background-color: #777777;
 }
 
 footer {
@@ -98,14 +98,35 @@ footer {
     margin-bottom: 10px;
 }
 
-#carrito button {
-    margin-top: 10px;
-    background-color: #6b4f3b;
+#carrito li button {
+    background-color: #D9534F; /* rojo serio */
     color: white;
     border: none;
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 8px;
     cursor: pointer;
+    margin-left: 10px;
+}
+
+#carrito li button:hover {
+    background-color: #C9302C;
+}
+
+#carrito button#sendWhatsappButton {
+    margin-top: 10px;
+    background-color: #25D366; /* verde medio serio WhatsApp */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#carrito button#sendWhatsappButton:hover {
+    background-color: #1ebe57;
 }
 
 .instagram-section {
@@ -114,12 +135,19 @@ footer {
 }
 
 .instagram-section button {
-    background-color: #6b4f3b;
+    background-color: #F76C2F; /* naranja medio serio Instagram */
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instagram-section button:hover {
+    background-color: #e35b20;
 }
 
 .modal {
