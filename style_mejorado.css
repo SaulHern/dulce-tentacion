@@ -2,12 +2,12 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff8f0;
+    background-color: #f5f5f5;
     color: #333;
 }
 
 header {
-    background-color: #ff66b2;
+    background-color: #6b4f3b;
     color: white;
     padding: 15px 20px;
     display: flex;
@@ -19,25 +19,31 @@ header h1 {
     margin: 0;
 }
 
-.hero {
-    background-color: #ffe0ec;
-    padding: 40px;
-    text-align: center;
+.main-layout {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.hero h2 {
-    margin: 0 0 10px;
+main {
+    flex: 3;
+    padding: 20px;
+}
+
+aside {
+    flex: 1;
+    background-color: #f0e7de;
+    padding: 20px;
+    border-left: 2px solid #ccc;
 }
 
 .productos-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 20px;
 }
 
 .producto {
-    background: white;
+    background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
@@ -56,13 +62,13 @@ header h1 {
 }
 
 .precio {
-    color: #ff66b2;
+    color: #6b4f3b;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .producto button {
-    background-color: #ff66b2;
+    background-color: #6b4f3b;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -72,18 +78,50 @@ header h1 {
 }
 
 .producto button:hover {
-    background-color: #ff3385;
+    background-color: #4a3627;
 }
 
 footer {
-    background-color: #ff66b2;
+    background-color: #6b4f3b;
     color: white;
     text-align: center;
     padding: 10px 0;
     margin-top: 30px;
 }
 
-/* Modal de Login */
+#carrito ul {
+    list-style: none;
+    padding: 0;
+}
+
+#carrito li {
+    margin-bottom: 10px;
+}
+
+#carrito button {
+    margin-top: 10px;
+    background-color: #6b4f3b;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.instagram-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.instagram-section button {
+    background-color: #6b4f3b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 .modal {
     display: flex;
     justify-content: center;
@@ -113,7 +151,7 @@ footer {
 }
 
 .modal-content button {
-    background-color: #ff66b2;
+    background-color: #6b4f3b;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -122,19 +160,9 @@ footer {
 }
 
 .modal-content button:hover {
-    background-color: #ff3385;
+    background-color: #4a3627;
 }
 
 .hidden {
     display: none;
-}
-
-/* Contacto */
-#contacto {
-    text-align: center;
-    margin: 30px 0;
-}
-
-#contacto button {
-    margin: 5px;
 }
