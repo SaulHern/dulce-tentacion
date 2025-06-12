@@ -1,179 +1,140 @@
 body {
-  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-  background: #fafafa;
-  margin: 0;
-  padding: 0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff8f0;
+    color: #333;
 }
 
-.banner {
-  width: 100%;
-  max-width: 100vw;
-  display: block;
-  margin: 0 auto;
-  border-radius: 0 0 18px 18px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+header {
+    background-color: #ff66b2;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-main {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 1em;
-  text-align: center;
+header h1 {
+    margin: 0;
 }
 
-h1, h2, h3 {
-  margin: 1em 0 0.5em 0;
+.hero {
+    background-color: #ffe0ec;
+    padding: 40px;
+    text-align: center;
 }
 
-.productos-lista {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em;
+.hero h2 {
+    margin: 0 0 10px;
+}
+
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
 .producto {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  padding: 1em;
-  margin-bottom: 1em;
-  width: 160px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 15px;
 }
+
 .producto img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  margin-bottom: 0.7em;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
 }
-.producto input[type="number"] {
-  width: 60px;
-  font-size: 1.1em;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  margin: 0.3em 0 0.7em 0;
-  text-align: center;
+
+.producto h3 {
+    margin: 10px 0 5px;
 }
+
+.precio {
+    color: #ff66b2;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .producto button {
-  background: transparent;
-  border: none;
-  outline: none;
-  border-radius: 16px;
-  cursor: pointer;
-  padding: 0.4em 0.7em;
-  transition: box-shadow 0.2s;
-}
-.producto button img {
-  width: 40px;
-  height: 40px;
-}
-.producto button:active, .producto button.agregado {
-  box-shadow: 0 0 0 3px #a5ee90;
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.carrito, .mensaje-envio {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  margin: 1em 0;
-  padding: 1em;
-  text-align: left;
-}
-
-#listaPedido {
-  list-style: none;
-  padding: 0;
-}
-#listaPedido li {
-  margin: 0.2em 0;
-  font-size: 1.1em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-#listaPedido button {
-  background: #fa6d86;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 1.2em;
-  width: 28px;
-  height: 28px;
-  margin-left: 0.7em;
-  border: none;
-}
-
-#total {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
-.acciones {
-  margin: 1.5em 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7em;
-  justify-content: center;
-}
-.acciones button, .acciones a {
-  display: flex;
-  align-items: center;
-  gap: 0.3em;
-  background: #e7e7ff;
-  border: none;
-  border-radius: 30px;
-  padding: 0.9em 1.2em;
-  font-size: 1em;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  color: #414042;
-  transition: background 0.15s, transform 0.1s;
-}
-.acciones button img, .acciones a img, .btn-main {
-  width: 32px;
-  height: 32px;
-  margin-right: 6px;
-  vertical-align: middle;
-}
-.acciones button:hover, .acciones a:hover {
-  background: #d1ebfa;
-  transform: scale(1.07);
-}
-
-.dudas-frecuentes {
-  margin: 1em 0;
-  background: #fffbe0;
-  border-radius: 16px;
-  padding: 1em;
-  font-size: 1em;
-  text-align: left;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+.producto button:hover {
+    background-color: #ff3385;
 }
 
 footer {
-  background: #f7f7f7;
-  font-size: 0.98em;
-  padding: 1.2em;
-  border-radius: 18px 18px 0 0;
-  margin-top: 2em;
-  text-align: center;
+    background-color: #ff66b2;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
 }
 
-/* Responsive para celular */
-@media (max-width: 600px) {
-  main {
-    padding: 0.7em;
-  }
-  .producto {
-    width: 100%;
-    max-width: 290px;
-  }
-  .acciones button, .acciones a {
-    width: 100%;
+/* Modal de Login */
+.modal {
+    display: flex;
     justify-content: center;
-    font-size: 1.1em;
-  }
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.modal-content input {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.modal-content button {
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #ff3385;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Contacto */
+#contacto {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#contacto button {
+    margin: 5px;
 }
