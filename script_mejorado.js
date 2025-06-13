@@ -1,4 +1,4 @@
-// ------------------- Variables generales ---------------------
+// ----------- CONFIGURACIÓN ----------- //
 const preguntasFrecuentes = [
     {
         pregunta: "¿Cuál es el horario de atención?",
@@ -185,61 +185,124 @@ function buscarPreguntasFrecuentes() {
     });
 }
 
-// ------------------- Navegación FAQ y volver a carrito/inicio ---------------------
-function prepararNavegacionFAQ() {
-    // Volver a inicio
-    const volverInicio = document.getElementById('volverInicio');
-    if (volverInicio) {
-        volverInicio.onclick = () => window.location.href = "index.html";
-    }
-    // Carrito en FAQ
-    const btnCarrito = document.getElementById('btnCarrito');
-    if (btnCarrito) {
-        btnCarrito.onclick = () => window.location.href = "index.html#carrito";
-    }
+// ------------------- Mostrar/Ocultar elementos protegidos ---------------------
+function mostrarElementosProtegidos() {
+    document.querySelectorAll('.add-cart-btn, #logoutButton, aside#carrito').forEach(el => {
+        el.classList.remove('hidden');
+    });
 }
 
-// ------------------- Mostrar elementos protegidos (después de login) ---------------------
-function mostrarElementosProtegidos() {
-    if (document.getElementById('carrito')) document.getElementById('carrito').classList.remove('hidden');
-    if (document.querySelector('.instagram-section')) document.querySelector('.instagram-section').classList.remove('hidden');
-    if (document.getElementById('logoutButton')) document.getElementById('logoutButton').classList.remove('hidden');
+// ------------------- Listeners globales ---------------------
+window.onload = function() {
+    loginCheck();
     prepararBotonesProductos();
     mostrarCarrito();
-}
-
-// ------------------- DOMContentLoaded / Main ---------------------
-document.addEventListener('DOMContentLoaded', () => {
-    // Login general
-    if (document.getElementById('loginButton')) {
-        document.getElementById('loginButton').onclick = () => {
-            const username = document.getElementById('usernameInput').value.trim();
-            if (username) {
-                sessionStorage.setItem('username', username);
-                loginCheck();
-            } else {
-                alert('Por favor ingresa tu nombre.');
-            }
-        }
-    }
-    if (document.getElementById('logoutButton')) {
-        document.getElementById('logoutButton').onclick = logout;
-    }
-
-    // Login check y nombre
-    loginCheck();
-
-    // Productos y carrito
-    if (document.querySelector('.add-cart-btn')) prepararBotonesProductos();
+    mostrarNombreUsuario();
     if (document.getElementById('sendWhatsappButton')) {
         document.getElementById('sendWhatsappButton').onclick = enviarPedidoWhatsApp;
     }
-    mostrarCarrito();
-
     // FAQ
     if (document.getElementById('faqList')) mostrarPreguntasFrecuentes();
     if (document.getElementById('searchInput')) {
-        document.getElementById('searchInput').oninput = buscarPreguntasFrecuentes;
+        document.getElementById('searchInput').addEventListener('input', buscarPreguntasFrecuentes);
     }
-    prepararNavegacionFAQ();
-});
+    // Volver a inicio (en FAQ)
+    if (document.getElementById('volverInicioBtn')) {
+        document.getElementById('volverInicioBtn').onclick = () => window.location.href = "index.html";
+    }
+    // Carrito botón en FAQ
+    if (document.getElementById('verCarritoBtn')) {
+        document.getElementById('verCarritoBtn').onclick = () => window.location.href = "index.html#carrito";
+    }
+};
+// Login modal
+if (document.getElementById('loginButton')) {
+    document.getElementById('loginButton').onclick = function() {
+        const val = document.getElementById('usernameInput').value.trim();
+        if (!val) return alert("Escribe tu nombre para continuar");
+        sessionStorage.setItem('username', val);
+        sessionStorage.setItem('loggedIn', 'true');
+        loginCheck();
+        location.reload();
+    };
+}
+// Logout
+if (document.getElementById('logoutButton')) {
+    document.getElementById('logoutButton').onclick = logout;
+}
+
+// ----------- Reseñas de estrellas y comentarios -------------
+// URL de tu Google Apps Script
+const RESEÑAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxOfGF9HiN1C23jSAh7-GhzseL4BvQJMud3OICCc5bF6CLn7AVechcuLHrbMSknzhiu/exec";
+
+function renderEstrellas(rating) {
+    const estrellasDiv = document.getElementById('estrellasRating');
+    estrellasDiv.innerHTML = '';
+    for (let i = 1; i <= 5; i++) {
+        const star = document.createElement('span');
+        star.className = 'estrella' + (i <= rating ? ' seleccionada' : '');
+        star.textContent = '★';
+        star.onclick = () => {
+            document.getElementById('calificacion').value = i;
+            renderEstrellas(i);
+        };
+        estrellasDiv.appendChild(star);
+    }
+}
+function cargarReseñas() {
+    const lista = document.getElementById('reseñasList');
+    if (!lista) return;
+    const reseñas = JSON.parse(localStorage.getItem('reseñasCandyLul') || '[]');
+    lista.innerHTML = '';
+    reseñas.slice().reverse().forEach(res => {
+        const div = document.createElement('div');
+        div.className = "reseña-item";
+        div.innerHTML = `<div>${'★'.repeat(res.estrellas)}${'☆'.repeat(5-res.estrellas)}</div>
+        <div>${res.comentario.replace(/</g, '&lt;')}</div>`;
+        lista.appendChild(div);
+    });
+}
+if (document.getElementById('reseñaForm')) {
+    renderEstrellas(0);
+    cargarReseñas();
+    document.getElementById('reseñaForm').onsubmit = function(e) {
+        e.preventDefault();
+        const estrellas = +document.getElementById('calificacion').value;
+        const comentario = document.getElementById('comentario').value.trim();
+        if (!estrellas) return alert("Selecciona una calificación en estrellas");
+        if (!comentario) return alert("Escribe tu comentario");
+
+        // Si usas login: obtener nombre del usuario
+        const nombre = sessionStorage.getItem('username') || '';
+
+        // Guarda la reseña en el navegador (para mostrar al usuario)
+        const reseñas = JSON.parse(localStorage.getItem('reseñasCandyLul') || '[]');
+        reseñas.push({ estrellas, comentario });
+        localStorage.setItem('reseñasCandyLul', JSON.stringify(reseñas));
+        cargarReseñas();
+
+        // ENVÍA A GOOGLE SHEETS
+        fetch(RESEÑAS_WEBAPP_URL, {
+            method: "POST",
+            body: JSON.stringify({
+                nombre: nombre,
+                estrellas: estrellas,
+                comentario: comentario
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(r => {
+            if (r.ok) {
+                alert("¡Gracias por tu opinión!");
+                document.getElementById('comentario').value = '';
+                document.getElementById('calificacion').value = 0;
+                renderEstrellas(0);
+            } else {
+                alert("No se pudo enviar la reseña. Intenta de nuevo.");
+            }
+        }).catch(() => {
+            alert("No se pudo enviar la reseña. Intenta de nuevo.");
+        });
+    }
+}
