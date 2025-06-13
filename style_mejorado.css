@@ -1,278 +1,367 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
+    background: #f7f5f2;
+    color: #3d2b1f;
 }
-
 header {
-    background-color: #6b4f3b;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: #e9ded4;
+    padding: 18px 0 10px 0;
+    text-align: center;
+    position: relative;
 }
-
 header h1 {
-    margin: 0;
-}
-
-.main-layout {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-main {
-    flex: 3;
-    padding: 20px;
-}
-
-aside {
-    flex: 1;
-    background-color: #f0e7de;
-    padding: 20px;
-    border-left: 2px solid #ccc;
-}
-
-.productos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.producto {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    padding: 15px;
-}
-
-.producto img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.producto h3 {
-    margin: 10px 0 5px;
-}
-
-.precio {
-    color: #6b4f3b;
+    margin: 0 0 10px 0;
+    font-size: 2em;
     font-weight: bold;
-    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
-
-.producto button {
-    background-color: #999999; /* gris bonito */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+header nav {
+    margin-top: 8px;
 }
-
-.producto button:hover {
-    background-color: #777777;
-}
-
-footer {
-    background-color: #6b4f3b;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 30px;
-}
-
-#carrito ul {
-    list-style: none;
-    padding: 0;
-}
-
-#carrito li {
-    margin-bottom: 10px;
-}
-
-#carrito li button {
-    background-color: #D9534F; /* rojo serio */
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-#carrito li button:hover {
-    background-color: #C9302C;
-}
-
-#carrito button#sendWhatsappButton {
-    margin-top: 10px;
-    background-color: #25D366; /* verde medio serio WhatsApp */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#carrito button#sendWhatsappButton:hover {
-    background-color: #1ebe57;
-}
-
-.instagram-section {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.instagram-section button {
-    background-color: #F76C2F; /* naranja medio serio Instagram */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.instagram-section button:hover {
-    background-color: #e35b20;
-}
-
-.modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-}
-
-.modal-content {
-    background-color: white;
-    padding: 20px 30px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.modal-content input {
-    padding: 10px;
-    width: 80%;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-.modal-content button {
-    background-color: #6b4f3b;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.modal-content button:hover {
-    background-color: #4a3627;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Iconos de redes en botones */
-.icono-red {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    vertical-align: middle;
-}
-.faq-banner {
-    text-align: center;
-    margin: 15px 0 10px 0;
-}
-.faq-banner img.banner-img {
-    width: 260px;
-    max-width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-}
-.faq-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f0e7de;
-    padding: 10px 16px;
-}
-.header-left h1 {
-    margin: 0;
-    font-size: 1.1em;
-}
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.faq-btn {
-    background: #6b4f3b;
+header .nav-btn {
+    background: #7c5c3b;
     color: #fff;
     border: none;
     border-radius: 8px;
-    padding: 7px 16px;
-    margin-left: 5px;
+    padding: 7px 18px;
+    margin: 0 4px;
+    font-size: 1em;
     cursor: pointer;
-    font-size: 0.96em;
-    display: flex;
-    align-items: center;
+    text-decoration: none;
     transition: background 0.2s;
 }
-.faq-btn img.icono-red {
-    margin-right: 6px;
+header .nav-btn:hover {
+    background: #4c2e12;
 }
-.faq-btn:hover {
-    background: #432c1d;
+#nombreUsuarioHeader {
+    display: block;
+    margin: 6px 0 0 0;
+    font-size: 1em;
+    font-weight: 500;
 }
-.faq-main h2 {
-    margin-top: 8px;
+#logoutButton {
+    background: #e85a4f;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 7px 15px;
+    font-size: 1em;
+    position: absolute;
+    top: 16px;
+    right: 22px;
+    cursor: pointer;
+    display: inline-block;
 }
-.faq-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 12px 0;
+#logoutButton.hidden {
+    display: none;
 }
-.faq-item {
-    background: #fff;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    padding: 12px;
+.main-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 25px 10px 30px 10px;
 }
-.faq-productos-imgs {
+main {
+    flex: 1;
+    min-width: 300px;
+    max-width: 680px;
+}
+.productos-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 18px;
     justify-content: center;
-    margin: 10px 0 15px 0;
 }
-.faq-productos-imgs img {
-    width: 80px;
-    height: 80px;
+.producto {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 3px 14px rgba(80,60,30,0.07);
+    padding: 13px 16px 16px 16px;
+    width: 160px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.13s;
+}
+.producto:hover {
+    transform: translateY(-3px) scale(1.025);
+    box-shadow: 0 7px 20px rgba(80,60,30,0.11);
+}
+.producto img {
+    width: 120px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.producto h3 {
+    font-size: 1.12em;
+    margin: 4px 0 7px 0;
+}
+.precio {
+    font-weight: bold;
+    color: #5d4332;
+    margin-bottom: 9px;
+}
+.add-cart-btn {
+    background: #b4a07f;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 7px 0;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background 0.17s;
+}
+.add-cart-btn:hover {
+    background: #8d7456;
+}
+.add-cart-btn.hidden {
+    display: none;
+}
+.instagram-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin: 30px 0 0 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(100,60,0,0.06);
+}
+.instagram-section.hidden {
+    display: none;
+}
+.instagram-section h2 {
+    font-size: 1.14em;
+    margin-bottom: 11px;
+}
+.instagram-section button {
+    background: #f3705a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 18px;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    transition: background 0.2s;
+}
+.instagram-section button:hover {
+    background: #b84d3d;
+}
+.icono-red {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+aside#carrito {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(60,30,10,0.10);
+    padding: 18px 20px 22px 20px;
+    width: 290px;
+    position: sticky;
+    top: 32px;
+}
+aside#carrito.hidden {
+    display: none;
+}
+#carrito h2 {
+    font-size: 1.18em;
+    margin: 0 0 12px 0;
+    color: #6b4f3b;
+}
+#cartItems {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+#cartItems li {
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e3dccb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+}
+#cartItems button {
+    background: #e85a4f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 2px 11px;
+    cursor: pointer;
+    font-size: 0.97em;
+    margin-left: 8px;
+}
+#cartItems button:hover {
+    background: #a73c32;
+}
+#sendWhatsappButton {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 9px 0;
+    width: 100%;
+    font-size: 1.08em;
+    margin-top: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+#sendWhatsappButton img {
+    margin-right: 7px;
+}
+#sendWhatsappButton:hover {
+    background: #168a47;
+}
+footer {
+    background: #d3c2ae;
+    text-align: center;
+    padding: 18px 0 14px 0;
+    font-size: 1em;
+    color: #6b4f3b;
+    margin-top: 35px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(45,29,10,0.20);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: #fff;
+    padding: 26px 22px 23px 22px;
+    border-radius: 13px;
+    box-shadow: 0 2px 14px rgba(50,20,10,0.13);
+    text-align: center;
+    max-width: 90vw;
+}
+#loginModal input[type="text"] {
+    padding: 8px;
+    width: 200px;
+    margin: 15px 0 13px 0;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    font-size: 1em;
+}
+#loginModal button {
+    background: #7c5c3b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 22px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#loginModal button:hover {
+    background: #4c2e12;
+}
+
+/* Sección de reseñas */
+.reseñas-section {
+    background: #fff;
+    margin-top: 30px;
+    padding: 16px 20px 22px 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.reseñas-section h2 {
+    margin-top: 0;
+}
+.estrellas {
+    display: flex;
+    font-size: 2em;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+.estrellas .estrella {
+    color: #ddd;
+    transition: color 0.2s;
+}
+.estrellas .estrella.seleccionada,
+.estrellas .estrella:hover,
+.estrellas .estrella.seleccionada ~ .estrella {
+    color: #ffce3a;
+}
+#reseñaForm textarea {
+    width: 100%;
+    min-height: 48px;
+    resize: vertical;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+#reseñaForm button {
+    background: #25D366;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 22px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+#reseñasList {
+    margin-top: 15px;
+}
+.reseña-item {
+    background: #f7f7f7;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.reseña-item .estrella {
+    font-size: 1.3em;
+    color: #ffce3a;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .main-layout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    aside#carrito {
+        width: 95vw;
+        margin: 0 auto 24px auto;
+        position: static;
+    }
+}
+@media (max-width: 600px) {
+    .productos-container {
+        gap: 13px;
+    }
+    .producto {
+        width: 98vw;
+        max-width: 330px;
+        padding: 12px 6px 16px 6px;
+    }
+    aside#carrito {
+        padding: 15px 6px 20px 8px;
+    }
+    .reseñas-section {
+        max-width: 98vw;
+        padding: 10px 3vw 16px 3vw;
+    }
 }
