@@ -1,175 +1,241 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Candy Lul</title>
-    <link rel="stylesheet" href="style_mejorado.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saul H. | Portafolio Frontend Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v12/font/simple-icons.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Modal de Login -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <h2>Bienvenido a Candy Lul 🍬</h2>
-            <p>Por favor, ingresa tu nombre para continuar:</p>
-            <input type="text" id="usernameInput" placeholder="Tu nombre">
-            <button id="loginButton">Entrar</button>
-        </div>
-    </div>
 
-    <!-- Header -->
-    <header>
-        <h1>🍬 Candy Lul</h1>
-        <span id="nombreUsuarioHeader"></span>
-        <nav>
-            <a href="faq.html" class="nav-btn">Dudas frecuentes</a>
-        </nav>
-        <button id="logoutButton" class="hidden">Cerrar sesión</button>
+    <header class="portfolio-header">
+        <div class="container">
+            <div class="hero-header-content">
+                <div class="hero-text-side">
+                    <h1 class="animated-text" id="animated-heading">Hola, soy Saul Hernández</h1>
+                    <p class="hero-tagline">Creador de Páginas Web, Convierte tus Ideas en una Realidad.</p>
+                </div>
+                <div class="hero-image-side">
+                    <img src="images/saul-hernandez.jpg" alt="Saul Hernández - Desarrollador Frontend">
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Main Layout -->
-    <div class="main-layout">
+    <nav class="main-nav-portfolio" id="main-nav-portfolio">
+        <div class="container">
+            <div class="nav-logo-wrapper">
+                <a href="#top" aria-label="Inicio"><img src="images/syntora-logo.png" alt="Logo de Syntora"></a>
+            </div>
+            <ul>
+                <li><a href="#top">Inicio</a></li>
+                <li><a href="#about-me">Sobre Mí</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#value-proposition-section">Valor</a></li>
+                <li><a href="paquetes.html">Paquetes</a></li> <li><a href="#presentation-video">Video</a></li>
+                <li><a href="agencia-digital-landing/index.html#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <!-- Productos -->
-        <main>
-            <section class="productos-container">
+    <main class="portfolio-main">
 
-                <div class="producto">
-                    <img src="images/bomboncitos.jpg" alt="Bomboncitos">
-                    <h3>Bomboncitos</h3>
-                    <p class="precio">$13 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/dragoncitos.jpg" alt="Dragoncitos">
-                    <h3>Dragoncitos</h3>
-                    <p class="precio">$1 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/dubalin.jpg" alt="Dubalin">
-                    <h3>Dubalin</h3>
-                    <p class="precio">$3 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/gloria.jpg" alt="Gloria">
-                    <h3>Gloria</h3>
-                    <p class="precio">$9 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/mazapan.jpg" alt="Mazapan">
-                    <h3>Mazapan</h3>
-                    <p class="precio">$5 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/winis.jpg" alt="Winis">
-                    <h3>Winis</h3>
-                    <p class="precio">$3 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/conejito.jpg" alt="Conejito">
-                    <h3>Conejito</h3>
-                    <p class="precio">$13 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/malva_bony.jpg" alt="Malva Bony">
-                    <h3>Malva Bony</h3>
-                    <p class="precio">$3 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/karla.jpg" alt="Karla">
-                    <h3>Karla</h3>
-                    <p class="precio">$20 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/skwinkles.jpg" alt="Skwinkles">
-                    <h3>Skwinkles</h3>
-                    <p class="precio">$10 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/bolsita_gomitas_enchiladas.jpg" alt="Bolsita de gomitas enchiladas">
-                    <h3>Bolsita de gomitas enchiladas</h3>
-                    <p class="precio">$14 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/bolsita_gomitas_sin_enchiladas.jpg" alt="Bolsita de gomitas sin enchilar">
-                    <h3>Bolsita de gomitas sin enchilar</h3>
-                    <p class="precio">$13 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <!-- Nuevos productos -->
-                <div class="producto">
-                    <img src="images/mini_runner.jpg" alt="Mini runner">
-                    <h3>Mini runner</h3>
-                    <p class="precio">$10 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/luca.jpg" alt="Luca">
-                    <h3>Luca</h3>
-                    <p class="precio">$10 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-                <div class="producto">
-                    <img src="images/pulparindo.jpg" alt="Pulparindo">
-                    <h3>Pulparindo</h3>
-                    <p class="precio">$3 MXN</p>
-                    <button class="add-cart-btn hidden">Agregar al carrito</button>
-                </div>
-            </section>
-
-            <!-- Reseñas -->
-            <section class="reseñas-section">
-                <h2>¡Califícanos!</h2>
-                <form id="reseñaForm">
-                    <div class="estrellas" id="estrellasRating">
-                        <!-- Las estrellas se llenan con JS -->
+        <section id="about-me" class="about-me-section">
+            <div class="container">
+                <h2>Sobre Mí</h2>
+                <img src="images/saul-hernandez.jpg" alt="Saul Hernández - Foto de Perfil" class="profile-photo">
+                <p>Soy Saul Hernández, un apasionado desarrollador frontend con un ojo para el diseño y una mente orientada a la funcionalidad. Mi objetivo es construir experiencias web intuitivas, eficientes y visualmente atractivas que no solo cumplan, sino que superen las expectativas de mis clientes. Con Syntora, transformo ideas en soluciones digitales robustas, aplicando las últimas tecnologías y las mejores prácticas de la industria.</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="material-icons">html</span>
+                        <p>HTML5</p>
                     </div>
-                    <input type="hidden" id="calificacion" value="0">
-                    <textarea id="comentario" placeholder="¿Por qué nos das esa calificación?" required></textarea>
-                    <button type="submit">Enviar reseña</button>
-                </form>
-                <div id="reseñasList">
-                    <!-- Aquí aparecerán las reseñas del usuario actual -->
+                    <div class="skill-item">
+                        <span class="material-icons">css</span>
+                        <p>CSS3</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">javascript</span>
+                        <p>JavaScript</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">widgets</span>
+                        <p>Diseño Responsivo</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">api</span>
+                        <p>Consumo de APIs</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">data_object</span>
+                        <p>LocalStorage</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">web_asset</span>
+                        <p>Landing Pages</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="material-icons">design_services</span>
+                        <p>UI/UX Básico</p>
+                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Instagram -->
-            <section class="instagram-section hidden">
-                <h2>Visita nuestra página de Instagram</h2>
-                <a href="https://www.instagram.com/_candy_lul_/" target="_blank">
-                    <button>
-                        <img src="images/instagram.png" alt="Instagram" class="icono-red"> Visitar Instagram
-                    </button>
+
+        <section id="projects" class="projects-section container">
+            <h2>Mis Proyectos</h2>
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">restaurant_menu</span>
+                    </div>
+                    <h3>Mi Restaurante Demo</h3>
+                    <p>Aplicación web interactiva para pedidos de comida online, con gestión de carrito dinámica, navegación fluida por categorías y simulación de funcionalidades clave.</p>
+                    <div class="project-links">
+                        <a href="https://saulhern.github.io/Restaurante-Demo/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Restaurante-Demo" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">bakery_dining</span>
+                    </div>
+                    <h3>Dulce Tentación</h3>
+                    <p>Una página web vibrante y visualmente atractiva diseñada para una pastelería o tienda de postres. Destaca por su presentación de productos y navegación amigable.</p>
+                    <div class="project-links">
+                        <a href="https://saulhern.github.io/dulce-tentacion/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/dulce-tentacion" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">auto_stories</span>
+                    </div>
+                    <h3>Guía de Estudio Interactiva</h3>
+                    <p>Un recurso online creado para facilitar el aprendizaje y la organización de temas de estudio, incorporando elementos interactivos para una experiencia de usuario enriquecida.</p>
+                    <div class="project-links">
+                        <a href="https://saulhern.github.io/Guia-de-estudio/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Guia-de-estudio" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
+                <div class="project-card featured-big">
+                    <div class="project-icon-wrapper">
+                        <span class="material-icons">laptop_mac</span>
+                    </div>
+                    <h3>Landing Page Agencia Digital</h3>
+                    <p>Página de aterrizaje completa y profesional para una agencia digital, con secciones de servicios, premios, testimonios y formulario de contacto. ¡Este es mi proyecto estrella!</p>
+                    <div class="project-links">
+                        <a href="https://saulhern.github.io/Digital-Agency_/" target="_blank" class="btn-primary">Ver Demo</a>
+                        <a href="https://github.com/SaulHern/Digital-Agency_" target="_blank" class="btn-secondary">Código</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="value-proposition-section" class="value-proposition-section container">
+            <h2>Mi Propuesta de Valor</h2>
+            <p>En Syntora, transformo tus ideas en experiencias web funcionales y visualmente impactantes. Mi enfoque es crear soluciones digitales a medida que no solo lucen increíbles, sino que también impulsan tus objetivos de negocio.</p>
+        </section>
+
+        <section id="services-inclusion-section" class="services-inclusion-section container">
+            <h2>¿Qué Incluyen Mis Servicios?</h2>
+            <div class="inclusions-grid">
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Diseño Web Personalizado</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Desarrollo Frontend Responsivo</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Integración de Contenido (textos, imágenes)</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Optimización para Motores de Búsqueda (SEO Básico)</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Formularios de Contacto Funcionales</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Configuración Inicial en GitHub Pages (hosting gratuito)</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Soporte Básico Post-Entrega</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Manejo de API Key</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Manejo de LocalStorage</p>
+                </div>
+                <div class="inclusion-item">
+                    <span class="material-icons">check_circle_outline</span>
+                    <p>Acordeones FAQ</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="presentation-video" class="presentation-video-section">
+            <div class="container">
+                <div class="video-header">
+                    <h2 id="video-title">Conoce Mi Trabajo en Video</h2>
+                    <div class="language-selector">
+                        <button class="lang-button active" data-lang="es">Español</button>
+                        <button class="lang-button" data-lang="en">English</button>
+                    </div>
+                </div>
+                <div class="video-container">
+                    <video id="presentation-player" controls preload="metadata" poster="images/video-poster-es.jpg">
+                        <source src="videos/presentacion-es.mp4" type="video/mp4">
+                        Tu navegador no soporta el tag de video.
+                    </video>
+                </div>
+                <p id="video-description">Un breve video donde presento mis habilidades, mi proceso de trabajo y por qué soy la mejor opción para tu próximo proyecto web.</p>
+            </div>
+        </section>
+
+        <section class="bottom-cta-buttons container">
+            <a href="paquetes.html" class="btn-primary">Ver Paquetes de Diseño Web</a>
+            <a href="contacto.html" class="btn-secondary">Servicios y Contacto</a>
+            <a href="agendar-cita.html" class="btn-primary">Agendar Cita</a>
+        </section>
+
+    </main>
+
+    <footer class="portfolio-footer">
+        <div class="container">
+            <div class="footer-logo"><img src="images/syntora-logo.png" alt="Logo de Syntora"></div>
+            <p>&copy; 2025 Saul H. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://github.com/SaulHern" target="_blank" class="social-icon" aria-label="GitHub de Saul H.">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">
                 </a>
-            </section>
-        </main>
-
-        <!-- Carrito -->
-        <aside id="carrito" class="hidden">
-            <h2>Tu carrito 🛒</h2>
-            <ul id="cartItems"></ul>
-            <button id="sendWhatsappButton">
-                <img src="images/whatsapp.png" alt="WhatsApp" class="icono-red"> Enviar pedido por WhatsApp
-            </button>
-        </aside>
-
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Candy Lul. Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="script_mejorado.js"></script>
+    <a href="https://wa.me/525520708423" target="_blank" class="whatsapp-float" aria-label="Chatear por WhatsApp">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" alt="WhatsApp">
+    </a>
+
+    <script src="script.js"></script>
 </body>
 </html>
